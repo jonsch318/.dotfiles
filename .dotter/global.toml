@@ -20,6 +20,7 @@ depends=["bash", "fish", "starship", "nvim"]
 "dotbashrc" = "~/.bashrc"
 "dotbash_profile" = "~/.bash_profile"
 "dotbash_logout" = "~/.bash_logout"
+"dotinputrc" = "~/.inputrc"
 
 [fish.files]
 "dotconfig/fish" = "~/.config/fish"
