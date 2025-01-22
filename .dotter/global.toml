@@ -14,7 +14,12 @@ depends = ["gnupg"]
 "dotconfig/ghostty" = "~/.config/ghostty"
 
 [cmd]
-depends=["fish", "starship", "nvim"]
+depends=["bash", "fish", "starship", "nvim"]
+
+[bash.files]
+"dotbashrc" = "~/.bashrc"
+"dotbash_profile" = "~/.bash_profile"
+"dotbash_logout" = "~/.bash_logout"
 
 [fish.files]
 "dotconfig/fish" = "~/.config/fish"
@@ -64,6 +69,11 @@ depends=["waybar", "hyprpaper", "hypridle", "hyprlock", "graphical"]
 [waybar.variables]
 output=["DP-1", "DP-2"]
 include_battery=true
+
+
+### PRIVILEGED ### 
+[lemurs.files]
+"lemurs/wayland/hyprland" = {target="/etc/lemurs/wayland/hyprland", owner=0, type="template"}
 
 ### OTHERS ###
 [onedrive.files]
