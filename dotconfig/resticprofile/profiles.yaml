@@ -1,0 +1,17 @@
+# yaml-language-server: $schema=https://creativeprojects.github.io/resticprofile/jsonschema/config.json
+version: "1"
+default:
+  repository: "/media/backup/restic"
+  password-file: "/etc/restic/pwd_file"
+  backup:
+    verbose: true
+    source:
+      - "/"
+    schedule: "15:00"
+    exclude:
+      - "/sys"
+      - "/dev"
+      - "/tmp"
+      - "/media"
+      - "/mnt"
+      - "/var/tmp"

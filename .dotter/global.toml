@@ -1,0 +1,85 @@
+[helpers]
+
+[default]
+depends = ["gnupg"]
+
+[default.files]
+
+[default.variables]
+
+[kitty.files]
+"dotconfig/kitty" = "~/.config/kitty"
+
+[ghostty.files]
+"dotconfig/ghostty" = "~/.config/ghostty"
+
+[cmd]
+depends=["fish", "starship", "nvim"]
+
+[fish.files]
+"dotconfig/fish" = "~/.config/fish"
+
+[starship.files]
+"dotconfig/starship.toml" = "~/.config/starship.toml"
+
+[nvim.files]
+"dotconfig/nvim" = {target="~/.config/nvim", type="symbolic"}
+
+[resticprofile.files]
+"dotconfig/resticprofile/profiles.yaml" = "~/.config/resticprofile/profiles.yaml"
+
+[gnupg.files]
+"dotgnupg/gpg-agent.conf" = "~/.gnupg/gpg-agent.conf"
+"dotgnupg/gpg.conf" = "~/.gnupg/gpg.conf"
+
+[pipewire.files]
+"dotconfig/pipewire" = "~/.config/pipewire"
+
+### GRAPHICAL STUFF ###
+[graphical]
+depends=["electron-flags"]
+
+[hyprland]
+depends=["waybar", "hyprpaper", "hypridle", "hyprlock", "graphical"]
+
+[hyprland.files]
+"dotconfig/hypr/scripts" = "~/.config/hypr/scripts"
+
+[hyprpaper.files]
+"dotconfig/hypr/hyprpaper.conf" = "~/.config/hypr/hyprpaper.conf"
+
+[hypridle.files]
+"dotconfig/hypr/hypridle.conf" = "~/.config/hypr/hypridle.conf"
+
+[hyprlock.files]
+"dotconfig/hypr/hyprlock.conf" = "~/.config/hypr/hyprlock.conf"
+
+[waybar.files]
+"dotconfig/waybar/config.jsonc" = "~/.config/waybar/config.jsonc"
+"dotconfig/waybar/style.css" = "~/.config/waybar/style.css"
+
+[electron-flags.files]
+"dotconfig/electron-flags.conf" = "~/.config/electron-flags.conf"
+
+[waybar.variables]
+output=["DP-1", "DP-2"]
+include_battery=true
+
+### OTHERS ###
+[onedrive.files]
+"dotconfig/onedrive/config" = "~/.config/onedrive/config"
+
+[onedrive.variables]
+onedrive_sync_dir = "~/onedrive"
+onedrive_skip_dir=[
+	"Pictures/Backup",
+	"Pictures/Camera Roll",
+	"Pictures/WhatsApp*",
+	"Pictures/Screenshots",
+	"Pictures/Download",
+	"Pictures/Sortiert",
+	"Pictures/SD Card"
+]
+
+[settings]
+default_target_type = "automatic"
