@@ -1,7 +1,7 @@
 [helpers]
 
 [default]
-depends = ["gnupg"]
+depends = ["gnupg", "git"]
 
 [default.files]
 
@@ -38,6 +38,9 @@ depends=["bash", "fish", "starship", "nvim"]
 "dotgnupg/gpg-agent.conf" = "~/.gnupg/gpg-agent.conf"
 "dotgnupg/gpg.conf" = "~/.gnupg/gpg.conf"
 
+[git.files]
+"dotgitconfig" = "~/.gitconfig"
+
 [pipewire.files]
 "dotconfig/pipewire" = "~/.config/pipewire"
 
@@ -46,7 +49,7 @@ depends=["bash", "fish", "starship", "nvim"]
 depends=["electron-flags"]
 
 [hyprland]
-depends=["waybar", "hyprpaper", "hypridle", "hyprlock", "graphical"]
+depends=["waybar", "mako", "hyprpaper", "hypridle", "hyprlock", "graphical"]
 
 [hyprland.files]
 "dotconfig/hypr/scripts" = "~/.config/hypr/scripts"
@@ -63,6 +66,9 @@ depends=["waybar", "hyprpaper", "hypridle", "hyprlock", "graphical"]
 [waybar.files]
 "dotconfig/waybar/config.jsonc" = "~/.config/waybar/config.jsonc"
 "dotconfig/waybar/style.css" = "~/.config/waybar/style.css"
+
+[mako.files]
+"dotconfig/mako/config" = "~/.config/mako/config"
 
 [electron-flags.files]
 "dotconfig/electron-flags.conf" = "~/.config/electron-flags.conf"
