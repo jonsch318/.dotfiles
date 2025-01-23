@@ -1,0 +1,41 @@
+[user]
+	name = Jonas Schneider
+	email = jonas.max.schneider@gmail.com
+	signingkey = 0x1B95684041835F5F
+
+[core]
+	editor = nvim
+
+[push]
+	autoSetupRemote = true
+    
+[pull]
+	rebase = true
+
+[commit]
+	gpgsign = true
+
+[tag]
+	gpgSign = true
+
+[rebase]
+	autoStash = true
+
+[filter "lfs"]
+	required = true
+	clean = git-lfs clean -- %f
+	smudge = git-lfs smudge -- %f
+	process = git-lfs filter-process
+
+[credential]
+	#helper = store
+	helper = libsecret
+
+[status]
+	submoduleSummary = true
+
+[maintenance]
+	repo = /home/jonas/src/htwr-aachen.de
+
+[init]
+	defaultBranch = main
