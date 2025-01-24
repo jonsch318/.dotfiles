@@ -61,4 +61,14 @@ M.treesitter_setup = function()
     vim.treesitter.language.register("markdown", "mdx") -- register markdown parser to new mdx filetype
 end
 
+--- DOTFILES ---
+vim.api.nvim_create_autocmd({ "BufNewFile", "BufRead" }, {
+    pattern = "dot*",
+    callback = function()
+        local name = vim.fn.expand('%:t'):gsub('^dot', '.')
+        vim.cmd('doautocmd filetypedetect BufRead ' .. name)
+    end
+})
+
+
 return M
