@@ -212,12 +212,13 @@ return {
 
 
 			--- OTHER:
-			--
+
 			-- BASH/ZSH/SH?
-			lspconfig.bashls = {
+			--lspconfig.bashls.setup(require("plugins.lsp.bashls").setup(base_on_attach, capabilities))
+			lspconfig.bashls.setup({
 				on_attach = base_on_attach,
 				capabilities = capabilities,
-			}
+			})
 
 			-- starlark
 			lspconfig.starpls.setup {
