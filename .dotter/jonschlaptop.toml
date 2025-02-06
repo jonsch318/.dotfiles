@@ -1,5 +1,5 @@
 includes = []
-packages = ["default", "kitty", "ghostty", "cmd", "pipewire", "hyprland", "onedrive", "lemurs", "dev"]
+packages = ["default", "kitty", "ghostty", "cmd", "pipewire", "hyprland", "onedrive", "lemurs", "dev", "kanata"]
 
 [files]
 "dotconfig/hypr/jonschlaptop-hyprland.conf"= "~/.config/hypr/hyprland.conf"
@@ -11,3 +11,7 @@ waybar_disk_path = "/"
 
 hypr_bg_path="/home/jonas/onedrive/Pictures/bg/aseag.jpg"
 hypr_bg_lock_path="/home/jonas/onedrive/Pictures/bg/ente-komisch.jpg"
+
+onedrive_skip_dir=[
+	'Pictures'
+]
