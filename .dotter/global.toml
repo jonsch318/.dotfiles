@@ -104,6 +104,9 @@ depends=["cargo"]
 [cargo.files]
 "dotcargo/config.toml" = "~/.cargo/config.toml"
 
+[kanata.files]
+"dotconfig/kanata.kbd" = "~/.config/kanata.kbd"
+
 ### SETTINGS ###
 
 [settings]
