@@ -8,13 +8,13 @@ M.setup = function(base_on_attach, capabilities)
 	return {
 		on_attach = base_on_attach,
 		capabilities = capabilities,
-		on_new_config = function(new_config)
-			new_config.settings.yaml.schemas = vim.tbl_deep_extend(
-				"force",
-				new_config.settings.yaml.schemas or {},
-				require("schemastore").yaml.schemas()
-			)
-		end,
+		-- on_new_config = function(new_config)
+		-- 	new_config.settings.yaml.schemas = vim.tbl_deep_extend(
+		-- 		"force",
+		-- 		new_config.settings.yaml.schemas or {},
+		-- 		require("schemastore").yaml.schemas()
+		-- 	)
+		-- end,
 		settings = {
 			yaml = {
 				keyOrdering = false,
@@ -23,12 +23,14 @@ M.setup = function(base_on_attach, capabilities)
 				},
 				validate = true,
 				schemaStore = {
-					enable = false,
-					url = "",
+					enable = true,
 				},
 				schemas = {
-					["https://www.talos.dev/v1.8/schemas/config.schema.json"] = "talos_*.yaml",
+					["https://www.talos.dev/v1.9/schemas/config.schema.json"] = "talos_*.yaml",
 					["https://json.schemastore.org/github-workflow.json"] = "/.github/workflows/*",
+					["https://json.schemastore.org/kustomization.json"] = "kustomization.yaml",
+					["https://raw.githubusercontent.com/yannh/kubernetes-json-schema/refs/heads/master/v1.32.1-standalone-strict/all.json"] =
+					"/*.k8s.yaml",
 					kubernetes = "*yaml",
 				}
 			}

@@ -5,6 +5,7 @@
 
 return {
     {
+        -- TODO: kubelinter
         -- I use nvim-lint for now but maybe tranfer to only diagnostic-lsp later down the line
         "mfussenegger/nvim-lint",
         event = { "BufWritePost", "BufNewFile" },
@@ -25,10 +26,9 @@ return {
                 sql = { "sqlfluff" },
                 starlark = { "buildifier" },
                 bzl = { "buildifier" },
-                dockerfile = { "hadolint" }
-                --markdown = { "vale" },
-                --tex = { "vale" },
-                --cpp = { "cpplint" },
+                dockerfile = { "hadolint" },
+                yaml = { "yamllint" },
+                ['yaml.ghaction'] = { "actionlint" }
             }
 
 
