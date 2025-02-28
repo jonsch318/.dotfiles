@@ -5,6 +5,13 @@ local M = {}
 ---@param capabilities any The capabilities that should be merged
 ---@return any
 M.setup = function(base_on_attach, capabilities)
+	local schemas = require("schemastore").yaml.schemas()
+	-- Add custom schemas
+	-- schemas["https://www.talos.dev/v1.9/schemas/config.schema.json"] = "talos_*.yaml"
+	-- schemas["https://json.schemastore.org/kustomization.json"] = "kustomization.yaml"
+	-- schemas["https://raw.githubusercontent.com/yannh/kubernetes-json-schema/refs/heads/master/v1.32.1-standalone-strict/all.json"] = "/*.k8s.yaml"
+	-- schemas["kubernetes"] = "*yaml"
+
 	return {
 		on_attach = base_on_attach,
 		capabilities = capabilities,
@@ -23,16 +30,10 @@ M.setup = function(base_on_attach, capabilities)
 				},
 				validate = true,
 				schemaStore = {
-					enable = true,
+					enable = false,
+					url = "",
 				},
-				schemas = {
-					["https://www.talos.dev/v1.9/schemas/config.schema.json"] = "talos_*.yaml",
-					["https://json.schemastore.org/github-workflow.json"] = "/.github/workflows/*",
-					["https://json.schemastore.org/kustomization.json"] = "kustomization.yaml",
-					["https://raw.githubusercontent.com/yannh/kubernetes-json-schema/refs/heads/master/v1.32.1-standalone-strict/all.json"] =
-					"/*.k8s.yaml",
-					kubernetes = "*yaml",
-				}
+				schemas = schemas
 			}
 		}
 	}

@@ -156,11 +156,6 @@ return {
 			-- TYPST
 			lspconfig.tinymist.setup(require("plugins.lsp.tinymist").setup(base_on_attach, capabilities))
 
-			-- lspconfig.typst_lsp.setup {
-			-- 	on_attach = base_on_attach,
-			-- 	capabilities = capabilities,
-			-- }
-
 			-- SQL
 			lspconfig.sqls.setup {
 				on_attach = base_on_attach,

@@ -1,6 +1,6 @@
 return {
-    {
-        "Hashino/doing.nvim",
-        config = true,
-    }
+	{
+		"Hashino/doing.nvim",
+		config = true,
+	}
 }
