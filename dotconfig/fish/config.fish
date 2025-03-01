@@ -29,5 +29,5 @@ set -gx EDITOR $VISUAL
 ## OTHER BINDS
 function fish_user_key_bindings
 	fish_vi_key_bindings insert
-	bind -M insert \cE accept-autosuggestion
+	bind -M insert ctrl-e accept-autosuggestion
 end
