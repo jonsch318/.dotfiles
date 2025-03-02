@@ -5,6 +5,7 @@
 
 [core]
 	editor = nvim
+	pager = delta
 
 [push]
 	autoSetupRemote = true
@@ -19,7 +20,7 @@
 	gpgSign = true
 
 [rebase]
-	autoStash = true
+	autoStash = false
 
 [filter "lfs"]
 	required = true
@@ -34,8 +35,15 @@
 [status]
 	submoduleSummary = true
 
-[maintenance]
-	repo = /home/jonas/src/htwr-aachen.de
-
 [init]
 	defaultBranch = main
+
+[merge]
+	conflictstyle = zdiff3
+
+[interactive]
+	diffFilter = delta --color-only
+
+[delta]
+	navigate=true
+	dark=true
