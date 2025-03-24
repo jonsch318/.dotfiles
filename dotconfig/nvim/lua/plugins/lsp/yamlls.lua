@@ -6,12 +6,14 @@ local M = {}
 ---@return any
 M.setup = function(base_on_attach, capabilities)
 	local schemas = require("schemastore").yaml.schemas()
+
+
 	-- Add custom schemas
+	schemas["kubernetes"] = "*yaml"
+	-- schemas[require("kubernetes").yamlls_schema()] = "*.yaml"
 	schemas["https://www.talos.dev/v1.9/schemas/config.schema.json"] = "talos_*.yaml"
 	schemas["https://json.schemastore.org/kustomization.json"] = "kustomization.yaml"
-	schemas["https://raw.githubusercontent.com/yannh/kubernetes-json-schema/refs/heads/master/v1.32.1-standalone-strict/all.json"] =
-	"/*.k8s.yaml"
-	schemas["kubernetes"] = "*yaml"
+
 
 	return {
 		on_attach = base_on_attach,

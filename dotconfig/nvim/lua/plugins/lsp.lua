@@ -180,6 +180,17 @@ return {
 			-- YAML
 			lspconfig.yamlls.setup(require("plugins.lsp.yamlls").setup(base_on_attach, capabilities))
 
+			-- vim.api.nvim_create_autocmd("Filetype", {
+			-- 	pattern = "yaml",
+			-- 	callback = function()
+			-- 		vim.lsp.start({
+			-- 			name = "yamlls",
+			-- 			cmd = { "yamlls" },
+			-- 			root_dir = vim.fs.dirname(vim.fs.find(".git", { upward = true, path = vim.api.nvim_buf_get_name(0) })[1]),
+			-- 		})
+			-- 	end
+			-- })
+
 			-- JSON
 			lspconfig.jsonls.setup(require("plugins.lsp.jsonls").setup(base_on_attach, capabilities))
 
