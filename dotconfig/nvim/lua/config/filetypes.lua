@@ -4,6 +4,27 @@
 
 local M = {}
 
+local function is_helm()
+    local filepath = vim.fn.expand("%:p")
+    local filename = vim.fn.expand("%:t")
+
+    if filepath:match("/templates/.%.(ya?ml|tpl|txt)") then
+        return true
+    end
+
+
+    -- Check if file is helmfile templated values
+    if filename:match(".*%.gotmpl$") then
+        return true
+    end
+
+    -- Check if file is helmfile.yaml or variations like helmfile-my.yaml
+    if filename:match("(helmfile).*%.ya?ml$") then
+        return true
+    end
+    return false
+end
+
 --- Registers custom filetypes to nvim at startup
 M.register_filetypes = function()
     vim.filetype.add {
@@ -54,6 +75,25 @@ M.register_filetypes = function()
             tf = "terraform"
         }
     }
+
+
+    -- HELM
+    vim.filetype.add({
+        pattern = {
+            [".*/templates/.*%.yaml"] = "helm",
+            [".*/Chart%.yaml"] = "helm",
+        },
+        filename = {
+            ["values.yaml"] = function(path)
+                local dir = vim.fn.fnamemodify(path, ":h")
+                local chart_yaml = dir .. "/Chart.yaml"
+                if vim.fn.filereadable(chart_yaml) == 1 then
+                    return "helm"
+                end
+                return "yaml"
+            end
+        }
+    })
 end
 
 --- Setup treesitter config of new custom filetypes

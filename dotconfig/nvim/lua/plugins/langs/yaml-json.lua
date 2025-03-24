@@ -5,6 +5,9 @@ return {
 		lazy = true,
 		version = false,
 	},
+	{
+		"diogo464/kubernetes.nvim"
+	}
 	-- {
 	--     "someone-stole-my-name/yaml-companion.nvim",
 	--     dependecies = {
