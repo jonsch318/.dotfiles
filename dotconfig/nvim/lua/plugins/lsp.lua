@@ -194,6 +194,12 @@ return {
 			-- JSON
 			lspconfig.jsonls.setup(require("plugins.lsp.jsonls").setup(base_on_attach, capabilities))
 
+			-- JSONNET
+			lspconfig.jsonnet_ls.setup {
+				base_on_attach = base_on_attach,
+				capabilities = capabilities,
+			}
+
 			-- Ansible
 			lspconfig.ansiblels.setup(require("plugins.lsp.ansiblels").setup(base_on_attach, capabilities))
 

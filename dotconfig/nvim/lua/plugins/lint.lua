@@ -9,8 +9,9 @@ return {
         -- I use nvim-lint for now but maybe tranfer to only diagnostic-lsp later down the line
         "mfussenegger/nvim-lint",
         event = { "BufWritePost", "BufNewFile" },
-        config = function(_, opts)
+        config = function(_, _opts)
             require("lint").linters_by_ft = {
+                -- lua = { "selene" },
                 javascript = { "eslint_d" },
                 typescript = { "eslint_d" },
                 javascriptreact = { "eslint_d" },
@@ -29,6 +30,13 @@ return {
                 dockerfile = { "hadolint" },
                 yaml = { "yamllint" },
                 ['yaml.ghaction'] = { "actionlint" }
+            }
+
+            require("lint").linters.golangcilint.args = {
+                "run",
+                "--output.text.path=stderr",
+                "--issues-exit-code=0",
+                "--show-stats=false"
             }
 
 
