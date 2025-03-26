@@ -40,7 +40,13 @@ return {
             },
             sections = {
                 lualine_a = { { 'mode', separator = { left = '' }, right_padding = 2 } },
-                lualine_b = { 'filename', 'branch', require('doing').status },
+                lualine_b = { 'filename', 'branch', function()
+                    local linters = require("lint").get_running()
+                    if #linters == 0 then
+                        return "󰦕"
+                    end
+                    return "󱉶 " .. table.concat(linters, ", ")
+                end },
                 lualine_c = {
                     '%=', --[[ add your center compoentnts here in place of this comment ]]
                 },
