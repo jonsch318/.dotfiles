@@ -31,3 +31,10 @@ function fish_user_key_bindings
 	fish_vi_key_bindings insert
 	bind -M insert ctrl-e accept-autosuggestion
 end
+
+# pnpm
+set -gx PNPM_HOME "/home/jonas/.local/share/pnpm"
+if not string match -q -- $PNPM_HOME $PATH
+  set -gx PATH "$PNPM_HOME" $PATH
+end
+# pnpm end
