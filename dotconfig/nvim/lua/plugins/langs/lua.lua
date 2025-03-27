@@ -4,10 +4,11 @@ return {
         ft = "lua", -- only load on lua files
         opts = {
             library = {
+                "blink.cmp",
                 -- See the configuration section for more details
                 -- Load luvit types when the `vim.uv` word is found
-                { path = "luvit-meta/library", words = { "vim%.uv" } },
-                "lazy.nvim"
+                { path = "${3rd}/luv/library", words = { "vim%.uv" } },
+                "LazyVim"
             },
         },
     },

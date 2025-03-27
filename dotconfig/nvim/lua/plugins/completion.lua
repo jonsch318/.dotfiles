@@ -3,94 +3,127 @@
 return {
 	{
 		"saghen/blink.cmp",
-		lazy = false, -- lazy loading handled internally
-		-- optional: provides snippets for the snippet source
+		version = "1.*",
 		dependencies = {
 			"rafamadriz/friendly-snippets",
 			"mikavilpas/blink-ripgrep.nvim",
+			"moyiz/blink-emoji.nvim",
 		},
 
-		-- use a release tag to download pre-built binaries
-		--version = 'v0.*',
-		-- OR build from source, requires nightly: https://rust-lang.github.io/rustup/concepts/channels.html#working-with-nightly-rust
-		build = 'cargo +nightly build --release --target-dir=target',
-		-- On musl libc based systems you need to add this flag
-		-- build = 'RUSTFLAGS="-C target-feature=-crt-static" cargo build --release',
-
+		---@module 'blink.cmp'
+		---@type blink.cmp.Config
 		opts = {
-			sources = {
-				default = {
-					"lsp",
-					"path",
-					"snippets",
-					"buffer",
-					-- "lazydev",
-					-- "ripgrep",
-				},
-				providers = {
-					-- lazydev = { name = "LazyDev", module = "lazydev.integrations.blink" },
-					-- ripgrep = {
-					-- 	module = "blink-ripgrep",
-					-- 	name = "Ripgrep",
-					-- 	-- the options below are optional, some default values are shown
-					-- 	---@module "blink-ripgrep"
-					-- 	---@type blink-ripgrep.Options
-					-- 	opts = {
-					-- 		-- the minimum length of the current word to start searching
-					-- 		-- (if the word is shorter than this, the search will not start)
-					-- 		prefix_min_len = 3,
-					-- 		-- The number of lines to show around each match in the preview window
-					-- 		context_size = 5,
-					-- 	},
-					-- }
-				},
-			},
-			appearance = {
-				-- sets the fallback highlight groups to nvim-cmp's highlight groups
-				-- useful for when your theme doesn't support blink.cmp
-				-- will be removed in a future release, assuming themes add support
-				use_nvim_cmp_as_default = true,
-				-- set to 'mono' for 'Nerd Font Mono' or 'normal' for 'Nerd Font'
-				-- adjusts spacing to ensure icons are aligned
-				nerd_font_variant = "mono",
-			},
-
-
-			-- experimental signature help support
-			signature = {
-				enabled = true,
-			},
-
 			keymap = {
-				['<C-space>'] = { 'show', 'show_documentation', 'hide_documentation' },
+				preset = "default",
+				['<C-e>'] = { "select_and_accept" },
+				['<C-q>'] = { "hide", "fallback" },
+			},
+			sources = {
+				default = { "lazydev", "lsp", "path", "snippets", "buffer", "emoji", "ripgrep" },
+				providers = {
+					lazydev = {
+						name = "LazyDev",
+						module = "lazydev.integrations.blink",
+						score_offset = 100,
+					},
+					emoji = {
+						module = "blink-emoji",
+						name = "Emoji",
+						score_offset = 15,  -- Tune by preference
+						opts = { insert = true }, -- Insert emoji (default) or complete its name
+					},
+					ripgrep = {
+						module = "blink-ripgrep",
+						name = "Ripgrep",
+					}
 
-				['<C-e>'] = { 'select_and_accept' },
-
-				--['<C-y>'] = { 'select_and_accept' },
-				['<C-q>'] = { 'hide', 'fallback' },
-
-				['<C-p>'] = { 'select_prev', 'fallback' },
-				['<C-n>'] = { 'select_next', 'fallback' },
-
-				['<C-b>'] = { 'scroll_documentation_up', 'fallback' },
-				['<C-f>'] = { 'scroll_documentation_down', 'fallback' },
-
-				['<Tab>'] = { 'snippet_forward', 'fallback' },
-				['<S-Tab>'] = { 'snippet_backward', 'fallback' },
+				}
 			},
 			completion = {
-				-- experimental auto-brackets support
-				accept = { auto_brackets = { enabled = true } },
+				documentation = { auto_show = true },
 				ghost_text = {
 					enabled = true,
 				}
-			}
-		},
+			},
+			signature = {
+				enabled = true
+			},
+		}
+
+		-- opts = {
+		-- 	sources = {
+		-- 		default = {
+		-- 			"lsp",
+		-- 			"path",
+		-- 			"snippets",
+		-- 			"buffer",
+		-- 			-- "lazydev",
+		-- 			-- "ripgrep",
+		-- 		},
+		-- 		providers = {
+		-- 			-- lazydev = { name = "LazyDev", module = "lazydev.integrations.blink" },
+		-- 			-- ripgrep = {
+		-- 			-- 	module = "blink-ripgrep",
+		-- 			-- 	name = "Ripgrep",
+		-- 			-- 	-- the options below are optional, some default values are shown
+		-- 			-- 	---@module "blink-ripgrep"
+		-- 			-- 	---@type blink-ripgrep.Options
+		-- 			-- 	opts = {
+		-- 			-- 		-- the minimum length of the current word to start searching
+		-- 			-- 		-- (if the word is shorter than this, the search will not start)
+		-- 			-- 		prefix_min_len = 3,
+		-- 			-- 		-- The number of lines to show around each match in the preview window
+		-- 			-- 		context_size = 5,
+		-- 			-- 	},
+		-- 			-- }
+		-- 		},
+		-- 	},
+		-- 	appearance = {
+		-- 		-- sets the fallback highlight groups to nvim-cmp's highlight groups
+		-- 		-- useful for when your theme doesn't support blink.cmp
+		-- 		-- will be removed in a future release, assuming themes add support
+		-- 		use_nvim_cmp_as_default = true,
+		-- 		-- set to 'mono' for 'Nerd Font Mono' or 'normal' for 'Nerd Font'
+		-- 		-- adjusts spacing to ensure icons are aligned
+		-- 		nerd_font_variant = "mono",
+		-- 	},
+		--
+		--
+		-- 	-- experimental signature help support
+		-- 	signature = {
+		-- 		enabled = true,
+		-- 	},
+		--
+		-- 	keymap = {
+		-- 		['<C-space>'] = { 'show', 'show_documentation', 'hide_documentation' },
+		--
+		-- 		['<C-e>'] = { 'select_and_accept' },
+		--
+		-- 		--['<C-y>'] = { 'select_and_accept' },
+		-- 		['<C-q>'] = { 'hide', 'fallback' },
+		--
+		-- 		['<C-p>'] = { 'select_prev', 'fallback' },
+		-- 		['<C-n>'] = { 'select_next', 'fallback' },
+		--
+		-- 		['<C-b>'] = { 'scroll_documentation_up', 'fallback' },
+		-- 		['<C-f>'] = { 'scroll_documentation_down', 'fallback' },
+		--
+		-- 		['<Tab>'] = { 'snippet_forward', 'fallback' },
+		-- 		['<S-Tab>'] = { 'snippet_backward', 'fallback' },
+		-- 	},
+		-- 	completion = {
+		-- 		-- experimental auto-brackets support
+		-- 		accept = { auto_brackets = { enabled = true } },
+		-- 		ghost_text = {
+		-- 			enabled = true,
+		-- 		}
+		-- 	}
+		-- },
 		-- allows extending the providers array elsewhere in your config
 		-- without having to redefine it
-		opts_extend = { "sources.default" }
-
+		-- opts_extend = { "sources.default" }
 	},
+
 	-- {
 	--     "hrsh7th/nvim-cmp",
 	--     dependencies = {

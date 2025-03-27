@@ -88,16 +88,10 @@ return {
 			end
 
 			-- Broadcast additional completion capabilities to servers
-			local capabilities = vim.lsp.protocol.make_client_capabilities()
+			local capabilities = {}
 			capabilities = require("blink.cmp").get_lsp_capabilities(capabilities)
 			-- Capabilities = require("coq").lsp_ensure_capabilities(capabilities) -- USE IF using coq
 			-- Capabilities = require("cmp_nvim_lsp").default_capabilities(capabilities) -- USE IF using cmp
-			capabilities = vim.tbl_deep_extend('force', capabilities, {
-				offsetEncoding = { 'utf-16' },
-				general = {
-					positionEncodings = { 'utf-16' }
-				},
-			});
 
 			-- ##### SETUP #####
 			local lspconfig = require("lspconfig")
