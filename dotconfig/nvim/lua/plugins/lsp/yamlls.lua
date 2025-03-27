@@ -9,10 +9,10 @@ M.setup = function(base_on_attach, capabilities)
 
 
 	-- Add custom schemas
-	schemas["kubernetes"] = "*yaml"
+	schemas["kubernetes"] = "k8s/**/*yaml"
 	-- schemas[require("kubernetes").yamlls_schema()] = "*.yaml"
 	schemas["https://www.talos.dev/v1.9/schemas/config.schema.json"] = "talos_*.yaml"
-	schemas["https://json.schemastore.org/kustomization.json"] = "kustomization.yaml"
+	--schemas["https://json.schemastore.org/kustomization.json"] = "kustomization.yaml"
 
 
 	return {
