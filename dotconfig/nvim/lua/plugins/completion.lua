@@ -15,8 +15,8 @@ return {
 		opts = {
 			keymap = {
 				preset = "default",
-				['<C-e>'] = { "select_and_accept" },
-				['<C-q>'] = { "hide", "fallback" },
+				["<C-e>"] = { "select_and_accept" },
+				["<C-q>"] = { "hide", "fallback" },
 			},
 			sources = {
 				default = { "lazydev", "lsp", "path", "snippets", "buffer", "emoji", "ripgrep" },
@@ -29,26 +29,25 @@ return {
 					emoji = {
 						module = "blink-emoji",
 						name = "Emoji",
-						score_offset = 15,  -- Tune by preference
+						score_offset = 15, -- Tune by preference
 						opts = { insert = true }, -- Insert emoji (default) or complete its name
 					},
 					ripgrep = {
 						module = "blink-ripgrep",
 						name = "Ripgrep",
-					}
-
-				}
+					},
+				},
 			},
 			completion = {
 				documentation = { auto_show = true },
 				ghost_text = {
 					enabled = true,
-				}
+				},
 			},
 			signature = {
-				enabled = true
+				enabled = true,
 			},
-		}
+		},
 
 		-- opts = {
 		-- 	sources = {

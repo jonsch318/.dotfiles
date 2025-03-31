@@ -18,9 +18,9 @@ return {
             require("nvim-treesitter.query_predicates")
         end,
         opts = {
-            indent = {
-                enable = true,
-            },
+            -- indent = {
+            --     enable = true,
+            -- },
             highlight = {
                 enable = true,
             },

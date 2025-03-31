@@ -1,50 +1,25 @@
 return {
 	{
 		"j-hui/fidget.nvim",
-	},
-	{
-		"nvimdev/lspsaga.nvim",
-		config = function()
-			require("lspsaga").setup {}
-		end,
-		event = "LspAttach",
-		dependencies = {
-			"nvim-treesitter/nvim-treesitter", -- optional
-			"nvim-tree/nvim-web-devicons",  -- optional
-		},
+		opts = {},
 	},
 	{
 		"neovim/nvim-lspconfig",
 		dependencies = {
 			"williamboman/mason.nvim",
 			"williamboman/mason-lspconfig.nvim",
-			{
-				"j-hui/fidget.nvim",
-				event = "LspAttach",
-			},
-			"nvimdev/lspsaga.nvim",
-			"saghen/blink.cmp"
+			"saghen/blink.cmp",
 		},
 		opts = {
 			inlay_hints = { enabled = true },
 		},
 		config = function()
 			require("mason").setup()
-			require("mason-lspconfig").setup {
-				ensure_installed = {
-					"lua_ls",
-				},
-				handlers = {
-					-- FIX: Temporary fix for tsserver to ts_ls rename
-					function(server_name)
-						server_name = server_name == "tsserver" and "ts_ls" or server_name
-					end,
-				},
-			}
+			require("mason-lspconfig").setup()
 
 			-- ##### Diagnostics #####
 			-- Set up cool signs for diagnostics
-			local signs = { Error = " ", Warn = " ", Hint = " ", Info = " " }
+			local signs = { Error = " ", Warn = " ", Info = " ", Hint = " " }
 			for type, icon in pairs(signs) do
 				local hl = "DiagnosticSign" .. type
 				vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = "" })
@@ -52,12 +27,21 @@ return {
 
 			-- Diagnostic config
 			local config = {
-				virtual_text = true,
+				virtual_text = {
+					severity = {
+						min = vim.diagnostic.severity.INFO,
+					},
+				},
+				virtual_lines = {
+					current_line = true,
+					severity = {
+						min = vim.diagnostic.severity.INFO,
+					},
+				},
 				signs = {
 					active = signs,
 				},
 				update_in_insert = true,
-				underline = true,
 				severity_sort = true,
 				float = {
 					focusable = true,
@@ -71,18 +55,13 @@ return {
 			vim.diagnostic.config(config)
 
 			local base_on_attach = function(client, buffer)
+				-- require("config.lsp-keymaps").on_attach(client, buffer)
+
 				if client.server_capabilities.inlayHintProvider then
 					vim.g.inlay_hints_visible = true
 					vim.lsp.inlay_hint.enable(true, { bufnr = buffer })
 				end
-			end
-
-			-- What happens at lsp attach event... keymaps are set in configs
-			local on_attach = function(client, buffer)
-				require("config.lsp-keymaps").on_attach(client, buffer)
-
-				-- Setup lsp format command used by <leader>cF binding
-				vim.api.nvim_buf_create_user_command(buffer, "Format", function(_)
+				vim.api.nvim_buf_create_user_command(buffer, "LSPFormat", function(_)
 					vim.lsp.buf.format()
 				end, { desc = "Format current buffer with LSP formatter" })
 			end
@@ -90,33 +69,23 @@ return {
 			-- Broadcast additional completion capabilities to servers
 			local capabilities = {}
 			capabilities = require("blink.cmp").get_lsp_capabilities(capabilities)
-			-- Capabilities = require("coq").lsp_ensure_capabilities(capabilities) -- USE IF using coq
-			-- Capabilities = require("cmp_nvim_lsp").default_capabilities(capabilities) -- USE IF using cmp
 
 			-- ##### SETUP #####
 			local lspconfig = require("lspconfig")
 
-			-- ON_ATTACH auto command
-			vim.api.nvim_create_autocmd("LspAttach", {
-				group = vim.api.nvim_create_augroup("UserLspConfig", {}),
-				callback = function(event)
-					on_attach({}, event.buf)
-				end,
-			})
-
 			-- JavaScript/TypeScript(react)
 			lspconfig.vtsls.setup(require("plugins.lsp.vtsls").setup(base_on_attach, capabilities))
 
-			lspconfig.tailwindcss.setup {
+			lspconfig.tailwindcss.setup({
 				on_attach = base_on_attach,
 				capabilities = capabilities,
-			}
+			})
 
 			-- SVELTE
-			lspconfig.svelte.setup {
+			lspconfig.svelte.setup({
 				on_attach = base_on_attach,
 				capabilities = capabilities,
-			}
+			})
 
 			--HTML
 			lspconfig.html.setup(require("plugins.lsp.html").setup(base_on_attach, capabilities))
@@ -138,34 +107,34 @@ return {
 			-- C/C++
 			lspconfig.clangd.setup(require("plugins.lsp.clangd").setup(base_on_attach, capabilities))
 
-			lspconfig.neocmake.setup {
+			lspconfig.neocmake.setup({
 				on_attach = base_on_attach,
 				capabilities = capabilities,
-			}
+			})
 
-			lspconfig.mesonlsp.setup {
+			lspconfig.mesonlsp.setup({
 				on_attach = base_on_attach,
 				capabilities = capabilities,
-			}
+			})
 			-- TYPST
 			lspconfig.tinymist.setup(require("plugins.lsp.tinymist").setup(base_on_attach, capabilities))
 
 			-- SQL
-			lspconfig.sqls.setup {
+			lspconfig.sqls.setup({
 				on_attach = base_on_attach,
 				capabilities = capabilities,
-			}
+			})
 
 			-- PYTHON
-			lspconfig.ruff.setup {
+			lspconfig.ruff.setup({
 				on_attach = base_on_attach,
 				capabilities = capabilities,
-			}
+			})
 
-			lspconfig.pyright.setup {
+			lspconfig.pyright.setup({
 				on_attach = base_on_attach,
 				capabilities = capabilities,
-			}
+			})
 
 			lspconfig.dockerls.setup(require("plugins.lsp.dockerls").setup(base_on_attach, capabilities))
 
@@ -189,33 +158,32 @@ return {
 			lspconfig.jsonls.setup(require("plugins.lsp.jsonls").setup(base_on_attach, capabilities))
 
 			-- JSONNET
-			lspconfig.jsonnet_ls.setup {
+			lspconfig.jsonnet_ls.setup({
 				base_on_attach = base_on_attach,
 				capabilities = capabilities,
-			}
+			})
 
 			-- Ansible
 			lspconfig.ansiblels.setup(require("plugins.lsp.ansiblels").setup(base_on_attach, capabilities))
 
 			-- Docker Compose
-			lspconfig.docker_compose_language_service.setup(require("plugins.lsp.docker_compose_language_service").setup(
-				base_on_attach, capabilities))
+			lspconfig.docker_compose_language_service.setup(
+				require("plugins.lsp.docker_compose_language_service").setup(base_on_attach, capabilities)
+			)
 
 			-- Gitlab Ci
-			lspconfig.gitlab_ci_ls.setup(require("plugins.lsp.gitlab_ci_ls").setup(
-				base_on_attach, capabilities))
+			lspconfig.gitlab_ci_ls.setup(require("plugins.lsp.gitlab_ci_ls").setup(base_on_attach, capabilities))
 
 			--HELM
 			lspconfig.helm_ls.setup(require("plugins.lsp.helm_ls").setup(base_on_attach, capabilities))
 
 			-- hyprls
-			lspconfig.hyprls.setup {
+			lspconfig.hyprls.setup({
 				on_attach = base_on_attach,
 				capabilities = capabilities,
-			}
+			})
 
 			lspconfig.terraformls.setup(require("plugins.lsp.terraformls").setup(base_on_attach, capabilities))
-
 
 			--- OTHER:
 
@@ -227,21 +195,21 @@ return {
 			})
 
 			-- starlark
-			lspconfig.starpls.setup {
+			lspconfig.starpls.setup({
 				on_attach = base_on_attach,
 				capabilities = capabilities,
-			}
+			})
 
-			lspconfig.bzl.setup {
+			lspconfig.bzl.setup({
 				on_attach = base_on_attach,
 				capabilities = capabilities,
-			}
+			})
 
 			-- tex
-			lspconfig.texlab.setup {
+			lspconfig.texlab.setup({
 				on_attach = base_on_attach,
 				capabilities = capabilities,
-			}
+			})
 
 			lspconfig.ltex.setup(require("plugins.lsp.ltex").setup(base_on_attach, capabilities))
 
@@ -255,7 +223,7 @@ return {
 			lspconfig.typos_lsp.setup(require("plugins.lsp.typos_lsp").setup(base_on_attach, capabilities))
 
 			-- LUA
-			lspconfig.lua_ls.setup {
+			lspconfig.lua_ls.setup({
 				on_attach = base_on_attach,
 				capabilities = capabilities,
 				settings = {
@@ -274,7 +242,7 @@ return {
 						},
 					},
 				},
-			}
+			})
 		end,
 	},
 }

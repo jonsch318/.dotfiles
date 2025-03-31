@@ -1,8 +1,3 @@
--- file for keymappings
-
--- Map q: to a no-operation
---vim.api.nvim_set_keymap("n", "q:", "<NOP>", { noremap = true, silent = true })
-
 -- window stuff
 vim.keymap.set({ "n" }, "<C-h>", "<C-w>h", { desc = "Go to left window", remap = true })
 vim.keymap.set({ "n" }, "<C-j>", "<C-w>j", { desc = "Go to lower window", remap = true })
@@ -16,7 +11,7 @@ vim.keymap.set({ "v" }, "<A-j>", ":m '>+1<cr>gv=gv", { desc = "Move down" })
 vim.keymap.set({ "v" }, "<A-k>", ":m '<-2<cr>gv=gv", { desc = "Move up" })
 
 -- save file (sin i know...)
-vim.keymap.set({ "i", "x", "n", "s" }, "<C-s>", "<cmd>w<cr><esc>", { desc = "Save file" })
+-- vim.keymap.set({ "i", "x", "n", "s" }, "<C-s>", "<cmd>w<cr><esc>", { desc = "Save file" })
 
 -- moving lines Shift K is already defined to be hover
 vim.keymap.set({ "n" }, "Y", ":m .-2<CR>==", { noremap = true, silent = true, desc = "Move Line Up" })
@@ -26,9 +21,30 @@ vim.keymap.set({ "v" }, "U", ":m '>+1<CR>gv=gv", { noremap = true, silent = true
 
 -- todo
 vim.keymap.set("n", "]t", function()
-    require("todo-comments").jump_next()
+	require("todo-comments").jump_next()
 end, { desc = "Next todo comment" })
 
 vim.keymap.set("n", "[t", function()
-    require("todo-comments").jump_prev()
+	require("todo-comments").jump_prev()
 end, { desc = "Previous todo comment" })
+
+-- Diagnostics
+
+vim.keymap.set("n", "]d", function()
+	vim.diagnostic.jump({ count = 1, float = true })
+end, { silent = false, buffer = buffer, desc = "Next Diagnostics" })
+vim.keymap.set("n", "[d", function()
+	vim.diagnostic.jump({ count = -1, float = true })
+end, { silent = false, buffer = buffer, desc = "Prev Diagnostics" })
+vim.keymap.set("n", "]e", function()
+	vim.diagnostic.jump({ count = 1, severity = vim.diagnostic.severity.ERROR })
+end, { silent = false, buffer = buffer, desc = "Next Error" })
+vim.keymap.set("n", "[e", function()
+	vim.diagnostic.jump({ count = -1, severity = vim.diagnostic.severity.ERROR })
+end, { silent = false, buffer = buffer, desc = "Prev Error" })
+vim.keymap.set("n", "]w", function()
+	vim.diagnostic.jump({ count = -1, severity = vim.diagnostic.severity.WARN })
+end, { silent = false, buffer = buffer, desc = "Next Warning" })
+vim.keymap.set("n", "[w", function()
+	vim.diagnostic.jump({ count = -1, severity = vim.diagnostic.severity.WARN })
+end, { silent = false, buffer = buffer, desc = "Prev Warning" })
