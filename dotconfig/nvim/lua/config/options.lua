@@ -14,7 +14,10 @@ vim.opt.signcolumn = "yes"
 vim.opt.tabstop = 2 -- TODO: maybe 2?
 vim.opt.shiftwidth = 2
 vim.expandtab = true
+vim.opt.autoindent = true
 vim.opt.smartindent = true
+
+
 
 -- gui features
 
@@ -22,8 +25,6 @@ vim.opt.mouse = "a"
 
 -- 24-bit colors
 vim.opt.termguicolors = true
-
-vim.opt.showtabline = 2
 
 --speedup loading
 vim.g.skip_ts_context_commmentstring_module = true

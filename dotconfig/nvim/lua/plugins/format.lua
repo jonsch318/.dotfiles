@@ -7,10 +7,17 @@ return {
 		event = { "BufWritePre" },
 		cmd = { "ConformInfo", "FormatDisable", "FormatEnable" },
 		keys = {
-			{ "<leader>cf", function() require("conform").format() end, desc = "Format Buffer Conform" }
+			{
+				"<leader>cf",
+				function()
+					require("conform").format()
+				end,
+				desc = "Format Buffer Conform",
+			},
 		},
 		opts = {
 			formatters_by_ft = {
+				lua = { "stylua" },
 				markdown = { "markdownfmt" },
 				typescript = { "prettier" },
 				typescriptreact = { "prettier" },
@@ -21,6 +28,9 @@ return {
 				cpp = { "clang-format" },
 				c = { "clang-format" },
 				rust = { "rustfmt" },
+				json = { "biome" },
+				jsonc = { "biome" },
+				json5 = { "biome" },
 				--tex = { "texfmt" },
 				--latex = { "texfmt" },
 				yaml = { "yamlfmt" },
@@ -35,7 +45,7 @@ return {
 				end
 				return {
 					timeout_ms = 450,
-					lsp_format = "fallback"
+					lsp_format = "fallback",
 				}
 			end,
 			default_format_opts = {
@@ -51,8 +61,8 @@ return {
 					command = "latexindent",
 					args = { "-m", "-l=.latexindent.yaml", "-" },
 					stdin = true,
-				}
-			}
+				},
+			},
 		},
 		config = function(_, opts)
 			require("conform").setup(opts)
