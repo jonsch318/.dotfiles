@@ -25,6 +25,13 @@ return {
 				["yaml.ghaction"] = { "actionlint" },
 			}
 
+			require("lint").linters.golangcilint.args = {
+				"run",
+				"--output.text.path=stderr",
+				"--issues-exit-code=0",
+				"--show-stats=false",
+			}
+
 			vim.api.nvim_create_autocmd({ "BufWritePost", "BufReadPost" }, {
 				callback = function()
 					require("lint").try_lint()
