@@ -21,6 +21,9 @@ return {
 			sources = {
 				default = { "lazydev", "lsp", "path", "snippets", "buffer", "emoji", "ripgrep" },
 				providers = {
+					lsp = {
+						score_offset = 20,
+					},
 					lazydev = {
 						name = "LazyDev",
 						module = "lazydev.integrations.blink",
@@ -46,6 +49,20 @@ return {
 			},
 			signature = {
 				enabled = true,
+			},
+			fuzzy = {
+				sorts = {
+					"exact",
+					function(a, b)
+						if (a.client_name == nil or b.client_name == nil) or (a.client_name == b.client_name) then
+							return
+						end
+						return b.client_name == "emmet_ls"
+					end,
+					-- default sorts
+					"score",
+					"sort_text",
+				},
 			},
 		},
 
