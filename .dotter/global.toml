@@ -83,20 +83,23 @@ include_battery=true
 "lemurs/wayland/hyprland" = {target="/etc/lemurs/wayland/hyprland", owner=0, type="template"}
 
 ### OTHERS ###
-[onedrive.files]
-"dotconfig/onedrive/config" = "~/.config/onedrive/config"
+[onedriver.files]
+"dotconfig/onedriver" = "~/.config/onedriver"
 
-[onedrive.variables]
-onedrive_sync_dir = "~/onedrive"
-onedrive_skip_dir=[
-	"Pictures/Backup",
-	"Pictures/Camera Roll",
-	"Pictures/WhatsApp*",
-	"Pictures/Screenshots",
-	"Pictures/Download",
-	"Pictures/Sortiert",
-	"Pictures/SD Card"
-]
+# [onedrive.files]
+# "dotconfig/onedrive/config" = "~/.config/onedrive/config"
+#
+# [onedrive.variables]
+# onedrive_sync_dir = "~/onedrive"
+# onedrive_skip_dir=[
+# 	"Pictures/Backup",
+# 	"Pictures/Camera Roll",
+# 	"Pictures/WhatsApp*",
+# 	"Pictures/Screenshots",
+# 	"Pictures/Download",
+# 	"Pictures/Sortiert",
+# 	"Pictures/SD Card"
+# ]
 
 [dev]
 depends=["cargo"]
