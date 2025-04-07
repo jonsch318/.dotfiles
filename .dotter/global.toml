@@ -14,7 +14,7 @@ depends = ["gnupg", "git"]
 "dotconfig/ghostty" = "~/.config/ghostty"
 
 [cmd]
-depends=["bash", "fish", "starship", "nvim"]
+depends=["bash", "fish", "starship", "nvim", "zellij"]
 
 [bash.files]
 "dotbashrc" = "~/.bashrc"
@@ -41,8 +41,8 @@ depends=["bash", "fish", "starship", "nvim"]
 [git.files]
 "dotgitconfig" = "~/.gitconfig"
 
-[pipewire.files]
-"dotconfig/pipewire" = "~/.config/pipewire"
+[zellij.files]
+"dotconfig/zellij" = "~/.config/zellij"
 
 ### GRAPHICAL STUFF ###
 [graphical]
@@ -77,6 +77,8 @@ depends=["waybar", "mako", "hyprpaper", "hypridle", "hyprlock", "graphical"]
 output=["DP-1", "DP-2"]
 include_battery=true
 
+[pipewire.files]
+"dotconfig/pipewire" = "~/.config/pipewire"
 
 ### PRIVILEGED ### 
 [lemurs.files]
