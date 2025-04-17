@@ -50,12 +50,21 @@ return {
 				desc = "Files (fzf-lua)",
 			},
 			{
-				"<leader>fo",
+				"<leader><space>",
 				function()
 					require("fzf-lua").files()
 				end,
-				desc = "Oldfiles (fzf-lua)",
+				desc = "Files",
 			},
+			-- vim.keymap.set("n", "<leader><space>", function()
+			-- 	require("telescope").extensions.smart_open.smart_open()
+			-- end, { silent = true, desc = "Find Files (Smart Open Telescope)" })({
+			-- 	"<leader>fo",
+			-- 	function()
+			-- 		require("fzf-lua").files()
+			-- 	end,
+			-- 	desc = "Oldfiles (fzf-lua)",
+			-- }),
 
 			{
 				"<leader>fr",

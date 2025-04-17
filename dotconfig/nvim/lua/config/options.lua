@@ -1,13 +1,13 @@
 -- map(local) leader
-vim.g.mapleader = " "       -- set `mapleader` before lazy for correct mappigng
+vim.g.mapleader = " " -- set `mapleader` before lazy for correct mappigng
 vim.g.maplocalleader = "\\" -- "\\"
 
 -- encoding
 vim.opt.fileencoding = "utf-8"
 
 -- linenumbers
-vim.opt.nu = true              -- enable line numbers
-vim.opt.relativenumber = false -- hate them
+vim.opt.nu = true -- enable line numbers
+vim.opt.relativenumber = true -- hate them?
 vim.opt.signcolumn = "yes"
 
 -- tabs & spaces
@@ -16,8 +16,6 @@ vim.opt.shiftwidth = 2
 vim.expandtab = true
 vim.opt.autoindent = true
 vim.opt.smartindent = true
-
-
 
 -- gui features
 
