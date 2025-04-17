@@ -264,8 +264,8 @@ plugins {
 
 		autolock location="file:~/.config/zellij/plugins/zellij-autolock.wasm" {
 			is_enabled true
-			triggers "nvim|vim"
-			watch_triggers "fzf|zoxide|atac|git"
+			triggers "nvim|vim|fzf|zoxide|lf|yazi|git"
+			watch_triggers "fzf|zoxide|atac|git|lf|yazi"
 			watch_interval "1.0"
 			reaction_seconds "0.5"
 		}
