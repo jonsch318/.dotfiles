@@ -47,3 +47,9 @@ if status is-interactive
 	set -gx ZELLIJ_AUTO_EXIT true
 	eval (zellij setup --generate-auto-start fish | string collect)
 end
+
+# ANNOYING THINGS
+set -gx PATH $PATH $HOME/.krew/bin
+
+
+
