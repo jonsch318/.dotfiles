@@ -30,7 +30,7 @@
 
 [credential]
 	#helper = store
-	helper = libsecret
+	helper = /usr/lib/git-core/git-credential-libsecret
 
 [status]
 	submoduleSummary = true
@@ -47,3 +47,10 @@
 [delta]
 	navigate=true
 	dark=true
+
+[sendmail]
+	smtpserver = mail.rwth-aachen.de
+	smtpuser = yr345010@rwth-aachen.de
+	smtpencryption = tls
+	smtpserverport = 587
+
