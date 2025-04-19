@@ -40,6 +40,8 @@ return {
 				typst = { "typstyle" },
 				terraform = { "tofu_fmt" },
 				tofu = { "tofu_fmt" },
+				go = { "gofmt" },
+				sql = { "sqlfluff" },
 			},
 			format_on_save = function(bufnr)
 				if vim.g.disable_autoformat or vim.b[bufnr].disable_autoformat then
