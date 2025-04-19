@@ -9,5 +9,7 @@ waybar_output = ["DP-1","DP-2"]
 waybar_include_battery = false
 waybar_disk_path = "/home/jonas"
 
-hypr_bg_path="/home/jonas/onedrive/Pictures/bg/aseag.jpg"
-hypr_bg_lock_path="/home/jonas/onedrive/Pictures/bg/ente-komisch.jpg"
+# hypr_bg_path="/home/jonas/onedrive/Pictures/bg/aseag.jpg"
+# hypr_bg_path="/home/jonas/onedrive/Pictures/bg/aseag.jpg"
+hypr_bg_lock_path="/home/jonas/Pictures/dark-green.jpg"
+hypr_bg_path="/home/jonas/Pictures/dark-green.jpg"
