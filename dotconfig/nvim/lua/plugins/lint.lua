@@ -25,6 +25,11 @@ return {
 				["yaml.ghaction"] = { "actionlint" },
 			}
 
+			require("lint").linters.sqlfluff.args = {
+				"lint",
+				"--format=json",
+			}
+
 			vim.api.nvim_create_autocmd({ "BufWritePost", "BufReadPost" }, {
 				callback = function()
 					require("lint").try_lint()
