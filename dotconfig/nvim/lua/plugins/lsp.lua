@@ -90,6 +90,12 @@ return {
 			--HTML
 			lspconfig.html.setup(require("plugins.lsp.html").setup(base_on_attach, capabilities))
 
+			-- HTMX
+			lspconfig.htmx.setup(require("plugins.lsp.htmx").setup(base_on_attach, capabilities))
+
+			-- TEMPL
+			lspconfig.templ.setup(require("plugins.lsp.templ").setup(base_on_attach, capabilities))
+
 			-- EMMET
 			lspconfig.emmet_ls.setup(require("plugins.lsp.emmet").setup(base_on_attach, capabilities))
 
