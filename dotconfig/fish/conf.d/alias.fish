@@ -13,3 +13,7 @@ if command -sq exa
 	alias l="exa -lahg --icons --octal-permissions"
 	alias ll="exa -lhg --icons --octal-permissions"
 end
+
+if command -sq helix
+	abbr hx helix
+end
