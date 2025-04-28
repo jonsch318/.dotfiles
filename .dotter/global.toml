@@ -14,7 +14,7 @@ depends = ["gnupg", "git"]
 "dotconfig/ghostty" = "~/.config/ghostty"
 
 [cmd]
-depends=["bash", "fish", "starship", "nvim", "zellij"]
+depends=["bash", "fish", "starship", "nvim", "zellij", "helix"]
 
 [bash.files]
 "dotbashrc" = "~/.bashrc"
@@ -30,6 +30,9 @@ depends=["bash", "fish", "starship", "nvim", "zellij"]
 
 [nvim.files]
 "dotconfig/nvim" = {target="~/.config/nvim", type="symbolic"}
+
+[helix.files]
+"dotconfig/helix" = {target="~/.config/helix", type="symbolic"}
 
 [resticprofile.files]
 "dotconfig/resticprofile/profiles.yaml" = "~/.config/resticprofile/profiles.yaml"
