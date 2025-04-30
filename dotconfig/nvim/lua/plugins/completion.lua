@@ -19,7 +19,7 @@ return {
 				["<C-q>"] = { "hide", "fallback" },
 			},
 			sources = {
-				default = { "lazydev", "lsp", "path", "snippets", "buffer", "emoji", "ripgrep" },
+				default = { "lazydev", "lsp", "path", "snippets", "buffer", "emoji" },
 				providers = {
 					lsp = {
 						score_offset = 20,
