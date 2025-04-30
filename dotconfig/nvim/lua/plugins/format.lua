@@ -30,7 +30,7 @@ return {
 				rust = { "rustfmt" },
 				json = { "biome" },
 				jsonc = { "biome" },
-				json5 = { "biome" },
+				--json5 = { "biome" },
 				--tex = { "texfmt" },
 				--latex = { "texfmt" },
 				yaml = { "yamlfmt" },
