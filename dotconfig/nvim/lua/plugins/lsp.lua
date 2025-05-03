@@ -74,7 +74,8 @@ return {
 			local lspconfig = require("lspconfig")
 
 			-- JavaScript/TypeScript(react)
-			lspconfig.vtsls.setup(require("plugins.lsp.vtsls").setup(base_on_attach, capabilities))
+			-- lspconfig.vtsls.setup(require("plugins.lsp.vtsls").setup(base_on_attach, capabilities))
+			lspconfig.ts_ls.setup(require("plugins.lsp.ts_ls").setup(base_on_attach, capabilities))
 
 			lspconfig.tailwindcss.setup({
 				on_attach = base_on_attach,
