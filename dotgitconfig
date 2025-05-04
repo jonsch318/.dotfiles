@@ -48,9 +48,11 @@
 	navigate=true
 	dark=true
 
-[sendmail]
+[sendemail]
 	smtpserver = mail.rwth-aachen.de
 	smtpuser = yr345010@rwth-aachen.de
 	smtpencryption = tls
 	smtpserverport = 587
+	suppressCc = all
+	confirm = always
 

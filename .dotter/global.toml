@@ -118,6 +118,12 @@ depends=["cargo"]
 [kanata.files]
 "dotconfig/kanata.kbd" = "~/.config/kanata.kbd"
 
+[mail]
+depends = ["aerc"]
+
+[aerc.files]
+"dotconfig/aerc/" = {target="~/.config/aerc", type="symbolic"}
+
 ### SETTINGS ###
 
 [settings]
