@@ -222,10 +222,7 @@ return {
 
 			-- lspconfig.ltex_plus.setup(require("plugins.lsp.ltex_plus").setup(base_on_attach, capabilities))
 
-			-- lspconfig.vale_ls.setup {
-			--     on_attach = base_on_attach,
-			--     capabilities = capabilities,
-			-- }
+			lspconfig.vale_ls.setup(require("plugins.lsp.vale_ls").setup(base_on_attach, capabilities))
 			lspconfig.harper_ls.setup(require("plugins.lsp.harper_ls").setup(base_on_attach, capabilities))
 			lspconfig.typos_lsp.setup(require("plugins.lsp.typos_lsp").setup(base_on_attach, capabilities))
 
