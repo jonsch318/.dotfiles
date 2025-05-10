@@ -1,96 +1,57 @@
---- These are the options keymap becoming available when a lsp attaches.
---- These include standard vim.lsp stuff but Lspsaga and more...
----@module "lsp-keymap"
----@author Jonas Schneider
----@license MIT
+-- -- Code Actions
+-- vim.keymap.set("n", "<F2>", vim.lsp.buf.rename, { silent = true, desc = "Rename" })
+-- -- GOTO
+-- -- vim.keymap.set("n", "grd", function()
+-- -- 	require("fzf-lua").lsp_definitions()
+-- -- end, { silent = true, desc = "Goto References" })
+-- -- vim.keymap.set("n", "grD", function()
+-- -- 	require("fzf-lua").lsp_declarations()
+-- -- end, { silent = true, desc = "Goto References" })
+-- vim.keymap.del("n", "grr")
+-- vim.deymap.set("n", "grr", "<CMD>FzfLua lsp_references<CR>, { silent = true, desc = "Goto References" })
+--
 
-local M = {}
+-- Actions
 
--- These are the options keymap becoming available when a lsp attaches.
--- These include standard vim.lsp stuff but Lspsaga and more...
+vim.keymap.del("n", "gra")
+vim.keymap.set("n", "gra", function()
+	require("fzf-lua").lsp_code_actions()
+end, { desc = "Code Actions" })
+vim.keymap.set("n", "<F2>", vim.lsp.buf.rename, { silent = true, desc = "Rename" })
 
-M.on_attach = function(_, buffer)
-	-- Code Actions
-	vim.keymap.set("n", "<leader>cr", vim.lsp.buf.rename, { silent = true, buffer = buffer, desc = "Rename" })
-	vim.keymap.set("n", "<F2>", vim.lsp.buf.rename, { silent = true, buffer = buffer, desc = "Rename" })
-	-- vim.keymap.set("n", "<F2>", "<CMD>Lspsaga rename<CR>",
-	--     { silent = true, buffer = buffer, desc = "Rename Project Wide" })
-	-- vim.keymap.set("n", "<leader>cR", "<CMD>Lspsaga rename<CR>",
-	--     { silent = true, buffer = buffer, desc = "Rename Project Wide" })
-	-- vim.keymap.set("n", "<leader>ca", vim.lsp.buf.code_action, { silent = true, buffer = buffer, desc = "Code Action" })
+-- GOTO
+vim.keymap.set("n", "grd", function()
+	require("fzf-lua").lsp_definitions()
+end, { desc = "Goto Definitions" })
 
-	-- vim.keymap.set(
-	--     "n",
-	--     "<leader>ca",
-	--     "<CMD>Lspsaga code_action<CR>",
-	--     { silent = false, buffer = buffer, desc = "Code Action" }
-	-- )
-	vim.keymap.set(
-		"n",
-		"<leader>ca",
-		vim.lsp.buf.code_action,
-		{ silent = false, buffer = buffer, desc = "Code Action" }
-	)
+vim.keymap.set("n", "grD", function()
+	require("fzf-lua").lsp_declarations()
+end, { desc = "Goto Definitions" })
 
-	vim.keymap.set(
-		"n",
-		"<leader>cd",
-		vim.lsp.buf.type_definition,
-		{ silent = true, buffer = buffer, desc = "Type Definition" }
-	)
-	vim.keymap.set(
-		"n",
-		"<leader>cs",
-		require("telescope.builtin").lsp_document_symbols,
-		{ silent = true, buffer = buffer, desc = "Document Symbols" }
-	)
-	vim.keymap.set("n", "<leader>cF", "<cmd>Format<cr>", { silent = true, buffer = buffer, desc = "Format with LSP" })
+vim.keymap.del("n", "grr")
+vim.keymap.set("n", "grr", function()
+	require("fzf-lua").lsp_references()
+end, { desc = "Goto References" })
 
-	-- GOTO
-	vim.keymap.set("n", "gd", vim.lsp.buf.definition, { silent = true, buffer = buffer, desc = "Goto Definition" })
-	-- vim.keymap.set(
-	--     "n",
-	--     "gr",
-	--     require("telescope.builtin").lsp_references,
-	--     { silent = true, buffer = buffer, desc = "Goto References" }
-	-- )
-	vim.keymap.set(
-		"n",
-		"gI",
-		vim.lsp.buf.implementation,
-		{ silent = true, buffer = buffer, desc = "Goto Implementation" }
-	)
-	vim.keymap.set("n", "gD", vim.lsp.buf.declaration, { silent = true, buffer = buffer, desc = "Goto Declaration" })
+vim.keymap.del("n", "gri")
+vim.keymap.set("n", "gri", function()
+	require("fzf-lua").lsp_implementations()
+end, { desc = "Goto References" })
 
-	-- Documentation
-	-- vim.keymap.set(
-	--     "n",
-	--     "K",
-	--     "<CMD>Lspsaga hover_doc<CR>",
-	--     { silent = true, buffer = buffer, desc = "Hover Documentation" }
-	-- )
+vim.keymap.set("n", "grf", function()
+	require("fzf-lua").lsp_finder()
+end, { desc = "Finder" })
 
-	vim.keymap.set(
-		"i",
-		"<C-K>",
-		vim.lsp.buf.signature_help,
-		{ silent = true, buffer = buffer, desc = "Hover Signature Help" }
-	)
+vim.keymap.set("n", "grt", function()
+	require("fzf-lua").lsp_typedefs()
+end, { desc = "Typedefs" })
 
-	-- Other Information
+vim.keymap.set("n", "grc", function()
+	require("fzf-lua").lsp_incoming_calls()
+end, { desc = "Goto Incoming Calls" })
+vim.keymap.set("n", "grC", function()
+	require("fzf-lua").lsp_outgoing_calls()
+end, { desc = "Goto Outgoing Calls" })
+-- Hover
 
-	vim.keymap.set(
-		"n",
-		"<leader>ch",
-		"<CMD>Lspsaga incoming_calls<CR>",
-		{ silent = true, buffer = buffer, desc = "Hover Documentation" }
-	)
-	vim.keymap.set(
-		"n",
-		"<leader>ch",
-		"<CMD>Lspsaga outgoing_calls<CR>",
-		{ silent = true, buffer = buffer, desc = "Hover Documentation" }
-	)
-end
-
-return M
+vim.keymap.set("i", "<C-K>", vim.lsp.buf.signature_help, { silent = true, desc = "Hover Signature Help" })
