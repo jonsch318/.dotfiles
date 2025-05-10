@@ -1,0 +1,3 @@
+window-decoration = false
+command=/usr/bin/fish
+theme = Kanagawa Dragon

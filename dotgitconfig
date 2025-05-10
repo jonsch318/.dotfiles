@@ -1,0 +1,58 @@
+[user]
+	name = Jonas Schneider
+	email = jonas.max.schneider@gmail.com
+	signingkey = 0x1B95684041835F5F
+
+[core]
+	editor = nvim
+	pager = delta
+
+[push]
+	autoSetupRemote = true
+    
+[pull]
+	rebase = true
+
+[commit]
+	gpgsign = true
+
+[tag]
+	gpgSign = true
+
+[rebase]
+	autoStash = false
+
+[filter "lfs"]
+	required = true
+	clean = git-lfs clean -- %f
+	smudge = git-lfs smudge -- %f
+	process = git-lfs filter-process
+
+[credential]
+	#helper = store
+	helper = /usr/lib/git-core/git-credential-libsecret
+
+[status]
+	submoduleSummary = true
+
+[init]
+	defaultBranch = main
+
+[merge]
+	conflictstyle = zdiff3
+
+[interactive]
+	diffFilter = delta --color-only
+
+[delta]
+	navigate=true
+	dark=true
+
+[sendemail]
+	smtpserver = mail.rwth-aachen.de
+	smtpuser = yr345010@rwth-aachen.de
+	smtpencryption = tls
+	smtpserverport = 587
+	suppressCc = all
+	confirm = always
+

@@ -1,2 +1,8 @@
-.config/localrc
-.config/nvim/lazy-lock.json
+.dotter/cache.toml
+.dotter/cache
+
+.dotter/local.toml
+
+## OTHER ##
+dotconfig/nvim/lazy-lock.json
+.tasks
