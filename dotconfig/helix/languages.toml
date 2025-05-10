@@ -1,0 +1,3 @@
+[[latex]]
+name = "latex"
+formatter = { command = "tex-fmt", args = ["--stdin"]}
