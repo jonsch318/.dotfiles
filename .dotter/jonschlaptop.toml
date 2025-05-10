@@ -1,0 +1,17 @@
+includes = []
+packages = ["default", "kitty", "ghostty", "cmd", "pipewire", "hyprland", "onedriver", "lemurs", "dev", "kanata", "mail"]
+
+[files]
+"dotconfig/hypr/jonschlaptop-hyprland.conf"= "~/.config/hypr/hyprland.conf"
+
+[variables]
+waybar_output = ["eDP-1"]
+waybar_include_battery = true
+waybar_disk_path = "/"
+
+hypr_bg_path="/home/jonas/onedrive/Pictures/bg/aseag.jpg"
+hypr_bg_lock_path="/home/jonas/onedrive/Pictures/bg/ente-komisch.jpg"
+
+# onedrive_skip_dir=[
+# 	'Pictures'
+# ]

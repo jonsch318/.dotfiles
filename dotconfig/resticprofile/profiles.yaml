@@ -1,0 +1,26 @@
+# yaml-language-server: $schema=https://creativeprojects.github.io/resticprofile/jsonschema/config-1.json
+version: "1"
+root:
+  repository: "local:/media/backup/restic"
+  password-file: "/etc/restic/pwd_file"
+  initialize: true
+  lock: "/tmp/resticprofile-profile-root.lock"
+  backup:
+    check-before: true
+    source:
+      - "/"
+    schedule: "*-*-* 00:00:00"
+    schedule-permission: system
+    schedule-priority: background
+    schedule-log: profile-backup.log
+    schedule-lock-wait: 15m30s
+    exclude:
+      - "/proc"
+      - "/sys"
+      - "/dev"
+      - "/run"
+      - "/tmp"
+      - "/mnt"
+      - "/media"
+      - "/var/tmp"
+      - "/home/jonas/onedrive"

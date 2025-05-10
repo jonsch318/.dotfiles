@@ -1,0 +1,15 @@
+includes = []
+packages = ["default", "kitty", "ghostty", "cmd", "resticprofile", "pipewire", "hyprland", "onedriver", "lemurs", "dev", "mail"]
+
+[files]
+"dotconfig/hypr/JonasArchPc-hyprland.conf"= "~/.config/hypr/hyprland.conf"
+
+[variables]
+waybar_output = ["DP-1","DP-2"]
+waybar_include_battery = false
+waybar_disk_path = "/home/jonas"
+
+# hypr_bg_path="/home/jonas/onedrive/Pictures/bg/aseag.jpg"
+# hypr_bg_path="/home/jonas/onedrive/Pictures/bg/aseag.jpg"
+hypr_bg_lock_path="/home/jonas/Pictures/dark-green.jpg"
+hypr_bg_path="/home/jonas/Pictures/dark-green.jpg"
