@@ -46,7 +46,7 @@
 
 [delta]
 	navigate=true
-	dark=true
+	side-by-side=true
 
 [sendemail]
 	smtpserver = mail.rwth-aachen.de
