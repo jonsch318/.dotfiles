@@ -4,6 +4,11 @@
 #     exec fish"
 # end
 
+if set -q virtme_hostname
+	return
+end
+
+
 starship init fish | source
 # zoxide init --cmd cd fish | source
 
