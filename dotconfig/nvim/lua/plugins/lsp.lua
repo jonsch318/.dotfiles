@@ -1,7 +1,6 @@
 return {
 	{
 		"j-hui/fidget.nvim",
-		opts = {},
 	},
 	{
 		"neovim/nvim-lspconfig",

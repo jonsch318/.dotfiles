@@ -5,6 +5,7 @@ return {
 			"nvim-tree/nvim-web-devicons",
 		},
 		opts = {},
+		cmd = "FzfLua",
 		keys = {
 			{
 				"<leader>fg",
