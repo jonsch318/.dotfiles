@@ -55,3 +55,5 @@ end, { desc = "Goto Outgoing Calls" })
 -- Hover
 
 vim.keymap.set("i", "<C-K>", vim.lsp.buf.signature_help, { silent = true, desc = "Hover Signature Help" })
+
+require("fzf-lua").register_ui_select()
