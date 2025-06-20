@@ -11,7 +11,7 @@ return {
 				["<Esc>"] = "actions.close",
 				["<C-l>"] = false,
 				["<C-h>"] = false,
-				["<C-L>"] = "actions.refresh",
+				["<C-S-l>"] = "actions.refresh",
 			},
 		},
 		keys = {
