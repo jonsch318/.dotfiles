@@ -52,6 +52,11 @@ end, { desc = "Goto Incoming Calls" })
 vim.keymap.set("n", "grC", function()
 	require("fzf-lua").lsp_outgoing_calls()
 end, { desc = "Goto Outgoing Calls" })
+
+vim.keymap.set("n", "grs", function()
+	require("fzf-lua").lsp_document_symbols()
+end, { desc = "Document Symbols" })
+
 -- Hover
 
 vim.keymap.set("i", "<C-K>", vim.lsp.buf.signature_help, { silent = true, desc = "Hover Signature Help" })

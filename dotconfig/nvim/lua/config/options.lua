@@ -7,7 +7,7 @@ vim.opt.fileencoding = "utf-8"
 
 -- linenumbers
 vim.opt.nu = true -- enable line numbers
-vim.opt.relativenumber = true -- hate them?
+vim.opt.relativenumber = true -- hate them? love them
 vim.opt.signcolumn = "yes"
 
 -- tabs & spaces
@@ -18,24 +18,42 @@ vim.opt.autoindent = true
 vim.opt.smartindent = true
 
 -- gui features
-
 vim.opt.mouse = "a"
 
 -- 24-bit colors
 vim.opt.termguicolors = true
-
---speedup loading
-vim.g.skip_ts_context_commmentstring_module = true
-
--- netrw
--- vim.g.loaded_netrwPlugin = 1
--- vim.g.loaded_netrw = 1
--- vim.g.loaded_netrwSettings = 1
--- vim.g.loaded_netrwFileHandlers = 1
--- vim.g.loaded_netrw_gitignore = 1
 
 -- clipboard
 vim.opt.clipboard = "unnamedplus"
 
 -- editor
 vim.opt.showtabline = 0
+
+-- diagnostic
+local signs = { Error = "", Warn = "", Info = "", Hint = "" }
+vim.diagnostic.config({
+	virtual_text = {
+		severity = {
+			min = vim.diagnostic.severity.INFO,
+		},
+	},
+	virtual_lines = {
+		current_line = true,
+		severity = {
+			min = vim.diagnostic.severity.INFO,
+		},
+	},
+	signs = {
+		active = signs,
+	},
+	update_in_insert = true,
+	severity_sort = true,
+	float = {
+		focusable = true,
+		style = "minimal",
+		border = "rounded",
+		source = "if_many",
+		header = "",
+		prefix = "",
+	},
+})

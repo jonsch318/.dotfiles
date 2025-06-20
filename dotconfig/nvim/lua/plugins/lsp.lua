@@ -4,6 +4,10 @@ return {
 		opts = {},
 	},
 	{
+		"williamboman/mason.nvim",
+		opts = {},
+	},
+	{
 		"neovim/nvim-lspconfig",
 		dependencies = {
 			"williamboman/mason.nvim",
@@ -14,41 +18,6 @@ return {
 			inlay_hints = { enabled = true },
 		},
 		config = function()
-			require("mason").setup()
-			--require("mason-lspconfig").setup()
-
-			-- ##### Diagnostics #####
-			local signs = { Error = "", Warn = "", Info = "", Hint = "" }
-
-			-- Diagnostic config
-			local config = {
-				virtual_text = {
-					severity = {
-						min = vim.diagnostic.severity.INFO,
-					},
-				},
-				virtual_lines = {
-					current_line = true,
-					severity = {
-						min = vim.diagnostic.severity.INFO,
-					},
-				},
-				signs = {
-					active = signs,
-				},
-				update_in_insert = true,
-				severity_sort = true,
-				float = {
-					focusable = true,
-					style = "minimal",
-					border = "rounded",
-					source = "always",
-					header = "",
-					prefix = "",
-				},
-			}
-			vim.diagnostic.config(config)
-
 			vim.api.nvim_create_autocmd("LspAttach", {
 				group = vim.api.nvim_create_augroup("UserLspConfig", {}),
 				callback = function(args)
@@ -65,7 +34,7 @@ return {
 			vim.lsp.enable("lua_ls")
 
 			-- JavaScript/TypeScript
-			vim.lsp.enable("ts_ls")
+			vim.lsp.enable("vtsls")
 
 			-- tailwindcss
 			vim.lsp.enable("tailwindcss")
