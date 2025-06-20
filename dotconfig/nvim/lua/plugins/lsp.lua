@@ -47,6 +47,7 @@ return {
 
 			-- htmx
 			vim.lsp.enable("htmx")
+			vim.lsp.config("htmx", { filetypes = { "templ" } })
 
 			-- templ
 			vim.lsp.enable("templ")
