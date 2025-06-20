@@ -1,5 +1,21 @@
-if [[ $(ps --no-header --pid=$PPID --format=comm) != "fish" && -z ${BASH_EXECUTION_STRING} && ${SHLVL} == 1 ]]
-then
+# Check if is interactive-session i.e. fish should be started in zellij
+if [[ $(ps --no-header --pid=$PPID --format=comm) != "fish" && -z ${BASH_EXECUTION_STRING} && ${SHLVL} == 1 && -z ${virtme_hostname} ]]; then
 	shopt -q login_shell && LOGIN_OPTION='--login' || LOGIN_OPTION=''
-	exec fish $LOGIN_OPTION
+	SHELL="/usr/bin/fish"
+	# Check if Zellij is already running or being attached to
+	if [[ -z "$ZELLIJ" ]]; then
+		# Start Zellij and then execute fish inside it
+		if [[ "$ZELLIJ_AUTO_ATTACH" == "true" ]]; then
+			exec zellij attach -c
+		else
+			exec zellij
+		fi
+
+		# If Zellij auto-exit is true, this exit will happen after Zellij detaches
+		if [[ "$ZELLIJ_AUTO_EXIT" == "true" ]]; then
+			exit
+		fi
+	else
+		exec fish $LOGIN_OPTION
+	fi
 fi

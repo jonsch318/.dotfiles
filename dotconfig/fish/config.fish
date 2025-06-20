@@ -4,6 +4,12 @@
 #     exec fish"
 # end
 
+# Check if VIRTME_ROOT environment variable is set
+if set -q virtme_hostname
+    echo "virtme-ng environment detected. Switching to bash..."
+    exec bash
+end
+
 starship init fish | source
 # zoxide init --cmd cd fish | source
 
@@ -42,14 +48,5 @@ end
 
 # pnpm end
 
-# Zellij
-if status is-interactive
-	set -gx ZELLIJ_AUTO_EXIT true
-	eval (zellij setup --generate-auto-start fish | string collect)
-end
-
 # ANNOYING THINGS
 set -gx PATH $PATH $HOME/.krew/bin
-
-
-

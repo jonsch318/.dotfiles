@@ -110,10 +110,13 @@ include_battery=true
 # ]
 
 [dev]
-depends=["cargo"]
+depends=["cargo", "gdb"]
 
 [cargo.files]
 "dotcargo/config.toml" = "~/.cargo/config.toml"
+
+[gdb.files]
+"dotconfig/gdb" = "~/.config/gdb"
 
 [kanata.files]
 "dotconfig/kanata.kbd" = "~/.config/kanata.kbd"
