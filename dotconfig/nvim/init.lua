@@ -7,6 +7,7 @@ require("config.lsp-keymaps")
 require("config.autocommands")
 
 require("config.filetypes").register_filetypes()
+require("config.filetypes").treesitter_setup()
 
 require("config.spell")
 

@@ -1,4 +1,5 @@
 return {
+	filetypes = { "html", "css", "templ" },
 	settings = {
 		html = {
 			format = {

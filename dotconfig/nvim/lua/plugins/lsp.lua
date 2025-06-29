@@ -8,12 +8,15 @@ return {
 		opts = {},
 	},
 	{
-		"neovim/nvim-lspconfig",
+		"williamboman/mason-lspconfig.nvim",
+		opts = {},
 		dependencies = {
-			"williamboman/mason.nvim",
-			"williamboman/mason-lspconfig.nvim",
-			"saghen/blink.cmp",
+			{ "mason-org/mason.nvim", opts = {} },
+			"neovim/nvim-lspconfig",
 		},
+	},
+	{
+		"neovim/nvim-lspconfig",
 		opts = {
 			inlay_hints = { enabled = true },
 		},
@@ -44,16 +47,21 @@ return {
 
 			-- html
 			vim.lsp.enable("html")
+			vim.lsp.enable("cssls")
+
+			-- markdown
+			vim.lsp.enable("mdx_analyzer")
 
 			-- htmx
 			vim.lsp.enable("htmx")
+			vim.lsp.config("htmx", { filetypes = { "templ" } })
 			vim.lsp.config("htmx", { filetypes = { "templ" } })
 
 			-- templ
 			vim.lsp.enable("templ")
 
 			-- EMMET
-			vim.lsp.enable("emmet-language-server")
+			vim.lsp.enable("emmet_language_server")
 
 			-- GO
 			vim.lsp.enable("gopls")
@@ -67,12 +75,12 @@ return {
 			-- C/C++
 			vim.lsp.enable("clangd")
 			vim.lsp.enable("neocmake")
-			vim.lsp.enable("masonlsp")
 
 			-- Texting
 
 			vim.lsp.enable("tinymist")
-			vim.lsp.enable("ltex")
+			vim.lsp.enable("ltex_plus")
+			vim.lsp.config("ltex_plus", { filetypes = { "tex", "latex", "bib" } })
 			vim.lsp.enable("texlab")
 			vim.lsp.enable("vale_ls")
 			vim.lsp.enable("harper_ls")

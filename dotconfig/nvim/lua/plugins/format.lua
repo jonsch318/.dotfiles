@@ -18,7 +18,6 @@ return {
 		opts = {
 			formatters_by_ft = {
 				lua = { "stylua" },
-				markdown = { "markdownfmt" },
 				typescript = { "prettier" },
 				typescriptreact = { "prettier" },
 				javascript = { "prettier" },
