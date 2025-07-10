@@ -19,7 +19,6 @@ require("config.options")
 
 require("lazy").setup({
 	spec = { { import = "plugins" }, { import = "plugins.langs" } },
-	checker = { enabled = true },
 })
 
 require("config.lsp-keymaps")

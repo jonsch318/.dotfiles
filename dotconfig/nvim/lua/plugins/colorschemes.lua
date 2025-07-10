@@ -15,4 +15,7 @@ return {
 		"ilof2/posterpole.nvim",
 		priority = 1000,
 	},
+	{
+		"vague2k/vague.nvim",
+	},
 }
