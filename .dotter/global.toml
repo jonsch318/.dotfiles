@@ -10,11 +10,14 @@ depends = ["gnupg", "git"]
 [kitty.files]
 "dotconfig/kitty" = "~/.config/kitty"
 
+[alacritty.files]
+"dotconfig/alacritty" = "~/.config/alacritty"
+
 [ghostty.files]
 "dotconfig/ghostty" = "~/.config/ghostty"
 
 [cmd]
-depends=["bash", "fish", "starship", "nvim", "zellij", "helix", "yazi"]
+depends=["bash", "fish", "starship", "nvim", "zellij", "helix", "yazi", "alacritty"]
 
 [bash.files]
 "dotbashrc" = "~/.bashrc"

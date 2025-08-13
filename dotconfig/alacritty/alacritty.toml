@@ -1,0 +1,7 @@
+[window]
+blur = true
+opacity=0.98
+
+[font]
+normal = { family = "Iosevka NF" }
+size = 13
