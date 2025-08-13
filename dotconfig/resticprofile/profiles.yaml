@@ -5,6 +5,12 @@ root:
   password-file: "/etc/restic/pwd_file"
   initialize: true
   lock: "/tmp/resticprofile-profile-root.lock"
+  force-inactive-lock: true
+  retention:
+    after-backup: true
+    keep-weekly: 4
+    keep-daily: 3
+    prune: true
   backup:
     check-before: true
     source:
@@ -24,3 +30,5 @@ root:
       - "/media"
       - "/var/tmp"
       - "/home/jonas/onedrive"
+  run-before: 'mount -o auto,suid,dev,rw,nofail,discard,prealloc,windows_names UUID=62630B3E29146A96 /media/backup'
+  run-finally: 'umount /media/backup'
