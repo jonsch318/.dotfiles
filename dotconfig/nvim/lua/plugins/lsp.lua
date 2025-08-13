@@ -84,7 +84,7 @@ return {
 			vim.lsp.enable("texlab")
 			vim.lsp.enable("vale_ls")
 			vim.lsp.enable("harper_ls")
-			vim.lsp.enable("typos_lsp")
+			--vim.lsp.enable("typos_lsp")
 
 			-- SQL
 			vim.lsp.enable("sqls")
