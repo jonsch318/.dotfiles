@@ -284,11 +284,18 @@ load_plugins {
 //   - false (Default)
 // 
 // simplified_ui true
+
+ui {
+	pane_frames {
+		rounded_corners true
+		hide_session_name true
+	}
+}
  
 // Choose the theme that is specified in the themes section.
 // Default: default
 // 
-theme "kanagawa"
+theme "atelier-sulphurpool"
  
 // Choose the base input mode of zellij.
 // Default: normal
