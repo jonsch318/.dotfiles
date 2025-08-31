@@ -8,14 +8,6 @@ return {
 		opts = {},
 	},
 	{
-		"williamboman/mason-lspconfig.nvim",
-		opts = {},
-		dependencies = {
-			{ "mason-org/mason.nvim", opts = {} },
-			"neovim/nvim-lspconfig",
-		},
-	},
-	{
 		"neovim/nvim-lspconfig",
 		opts = {
 			inlay_hints = { enabled = true },
