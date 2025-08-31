@@ -37,7 +37,7 @@ return {
 			vim.lsp.enable("lua_ls")
 
 			-- JavaScript/TypeScript
-			vim.lsp.enable("vtsls")
+			--vim.lsp.enable("vtsls")
 
 			-- tailwindcss
 			vim.lsp.enable("tailwindcss")
@@ -54,7 +54,6 @@ return {
 
 			-- htmx
 			vim.lsp.enable("htmx")
-			vim.lsp.config("htmx", { filetypes = { "templ" } })
 			vim.lsp.config("htmx", { filetypes = { "templ" } })
 
 			-- templ
@@ -84,7 +83,8 @@ return {
 			vim.lsp.enable("texlab")
 			vim.lsp.enable("vale_ls")
 			vim.lsp.enable("harper_ls")
-			--vim.lsp.enable("typos_lsp")
+			vim.lsp.config("harper_ls", { filetypes = { "md", "mdx", "tex", "typst" } })
+			vim.lsp.enable("typos_lsp")
 
 			-- SQL
 			vim.lsp.enable("sqls")

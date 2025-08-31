@@ -42,6 +42,10 @@ vim.keymap.set("n", "grf", function()
 	require("fzf-lua").lsp_finder()
 end, { desc = "Finder" })
 
+vim.keymap.set("n", "grF", function()
+	vim.lsp.buf.format()
+end, { desc = "Finder" })
+
 vim.keymap.set("n", "grt", function()
 	require("fzf-lua").lsp_typedefs()
 end, { desc = "Typedefs" })

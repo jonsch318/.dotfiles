@@ -18,12 +18,12 @@ return {
 		opts = {
 			formatters_by_ft = {
 				lua = { "stylua" },
-				typescript = { "prettier" },
-				typescriptreact = { "prettier" },
-				javascript = { "prettier" },
-				javascriptreact = { "prettier" },
+				typescript = { "biome", "biome-organize-imports" },
+				typescriptreact = { "biome", "biome-organize-imports" },
+				javascript = { "biome", "biome-organize-imports" },
+				javascriptreact = { "biome", "biome-organize-imports" },
 				svelte = { "prettier" },
-				css = { "prettier" },
+				css = { "biome" },
 				cpp = { "clang-format" },
 				c = { "clang-format" },
 				rust = { "rustfmt" },
