@@ -29,7 +29,7 @@ return {
 			vim.lsp.enable("lua_ls")
 
 			-- JavaScript/TypeScript
-			--vim.lsp.enable("vtsls")
+			vim.lsp.enable("vtsls")
 
 			-- tailwindcss
 			vim.lsp.enable("tailwindcss")
