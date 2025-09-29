@@ -75,6 +75,9 @@ depends=["waybar", "mako", "hyprpaper", "hypridle", "hyprlock", "graphical"]
 [hyprlock.files]
 "dotconfig/hypr/hyprlock.conf" = "~/.config/hypr/hyprlock.conf"
 
+[niri]
+depends=["waybar", "mako", "graphical"]
+
 [waybar.files]
 "dotconfig/waybar/config.jsonc" = "~/.config/waybar/config.jsonc"
 "dotconfig/waybar/style.css" = "~/.config/waybar/style.css"
@@ -137,3 +140,4 @@ depends = ["aerc"]
 
 [settings]
 default_target_type = "automatic"
+
