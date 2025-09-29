@@ -3,11 +3,13 @@ packages = ["default", "kitty", "ghostty", "cmd", "resticprofile", "pipewire", "
 
 [files]
 "dotconfig/hypr/JonasArchPc-hyprland.conf"= "~/.config/hypr/hyprland.conf"
+"dotconfig/niri/JonasArchPc-config.kdl" = "~/.config/niri/config.kdl"
 
 [variables]
 waybar_output = ["DP-1","DP-2"]
 waybar_include_battery = false
 waybar_disk_path = "/home/jonas"
+waybar_niri = true
 
 # hypr_bg_path="/home/jonas/onedrive/Pictures/bg/aseag.jpg"
 # hypr_bg_path="/home/jonas/onedrive/Pictures/bg/aseag.jpg"

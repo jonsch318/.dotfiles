@@ -8,6 +8,7 @@ packages = ["default", "kitty", "ghostty", "cmd", "pipewire", "hyprland", "onedr
 waybar_output = ["eDP-1"]
 waybar_include_battery = true
 waybar_disk_path = "/"
+waybar_hyprland = true
 
 hypr_bg_path="/home/jonas/onedrive/Pictures/bg/aseag.jpg"
 hypr_bg_lock_path="/home/jonas/onedrive/Pictures/bg/ente-komisch.jpg"

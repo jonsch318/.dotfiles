@@ -7,11 +7,21 @@
     {{/each}}
 	],
 	"modules-left": [
+    {{#if waybar_hyprland}}
 		"hyprland/workspaces",
+    {{/if}}
+    {{#if waybar_niri}}
+		"niri/workspaces",
+    {{/if}}
 		"cava"
 	],
 	"modules-center": [
+    {{#if waybar_hyprland}}
 		"hyprland/window",
+    {{/if}}
+    {{#if waybar_niri}}
+		"niri/window",
+    {{/if}}
 		"clock"
 	],
 	"modules-right": [
@@ -29,6 +39,36 @@
 	],
 	"layer": "top",
 	// Modules configuration
+	"niri/workspaces": {
+		"format": "{icon} ",
+		"on-click": "activate",
+		"sort-by-number": true,
+		"sort-by-name": false,
+		"all-outputs": false,
+		"format-icons": {
+			"1": "",
+			"2": "",
+			"3": "",
+			"4": "",
+			"5": "",
+			"7": "",
+			"8": "",
+			"9": "󰇮",
+			"10": "",
+			"urgent": "",
+			"focused": "",
+			"default": ""
+		}
+	},
+	"niri/window": {
+    "format": "👉 {}",
+		"rewrite": {
+			"(.*) — Mozilla Firefox": "🌎 $1",
+			"(.*) — Zen Browser": "🌎 $1",
+			"(.*) - fish": "> [$1]"
+		},
+		"separate-outputs": false
+	},
 	"hyprland/workspaces": {
 		"format": "{icon} ",
 		"on-click": "activate",
