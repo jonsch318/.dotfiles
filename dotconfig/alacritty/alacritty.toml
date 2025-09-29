@@ -1,6 +1,6 @@
 [window]
 blur = true
-opacity=0.98
+opacity=1
 
 [font]
 normal = { family = "Iosevka NF" }
