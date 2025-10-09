@@ -44,21 +44,7 @@
 		"on-click": "activate",
 		"sort-by-number": true,
 		"sort-by-name": false,
-		"all-outputs": false,
-		"format-icons": {
-			"1": "",
-			"2": "",
-			"3": "",
-			"4": "",
-			"5": "",
-			"7": "",
-			"8": "",
-			"9": "󰇮",
-			"10": "",
-			"urgent": "",
-			"focused": "",
-			"default": ""
-		}
+		"all-outputs": false
 	},
 	"niri/window": {
     "format": "👉 {}",

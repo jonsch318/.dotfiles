@@ -45,8 +45,8 @@ return {
 			vim.lsp.enable("mdx_analyzer")
 
 			-- htmx
-			vim.lsp.enable("htmx")
-			vim.lsp.config("htmx", { filetypes = { "templ" } })
+			-- vim.lsp.enable("htmx")
+			-- vim.lsp.config("htmx", { filetypes = { "templ" } })
 
 			-- templ
 			vim.lsp.enable("templ")
