@@ -85,7 +85,7 @@ M.register_filetypes = function()
 				local dir = vim.fn.fnamemodify(path, ":h")
 				local chart_yaml = dir .. "/Chart.yaml"
 				if vim.fn.filereadable(chart_yaml) == 1 then
-					return "helm"
+					return "yaml.helm"
 				end
 				return "yaml"
 			end,
