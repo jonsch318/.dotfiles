@@ -96,8 +96,8 @@ include_battery=true
 "dotconfig/pipewire" = "~/.config/pipewire"
 
 ### PRIVILEGED ### 
-# [lemurs.files]
-# "lemurs/wayland/hyprland" = {target="/etc/lemurs/wayland/hyprland", owner=0, type="template"}
+[lemurs.files]
+#"lemurs/wayland/hyprland" = {target="/etc/lemurs/wayland/hyprland", owner=0, type="template"}
 
 ### OTHERS ###
 [onedriver.files]

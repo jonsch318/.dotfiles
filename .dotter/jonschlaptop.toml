@@ -1,8 +1,9 @@
 includes = []
-packages = ["default", "kitty", "ghostty", "cmd", "pipewire", "hyprland", "onedriver", "lemurs", "dev", "kanata", "mail"]
+packages = ["default", "kitty", "ghostty", "cmd", "pipewire", "hyprland", "onedriver", "lemurs", "dev", "kanata", "mail", "niri"]
 
 [files]
 "dotconfig/hypr/jonschlaptop-hyprland.conf"= "~/.config/hypr/hyprland.conf"
+"dotconfig/niri/jonschlaptop-config.kdl" = "~/.config/niri/config.kdl"
 
 [variables]
 waybar_output = ["eDP-1"]
