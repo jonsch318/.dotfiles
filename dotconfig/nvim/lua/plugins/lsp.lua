@@ -30,6 +30,7 @@ return {
 
 			-- JavaScript/TypeScript
 			vim.lsp.enable("vtsls")
+			vim.lsp.enable("biome")
 
 			-- tailwindcss
 			vim.lsp.enable("tailwindcss")
@@ -52,6 +53,24 @@ return {
 			vim.lsp.enable("templ")
 
 			-- EMMET
+			vim.lsp.config("emmet_language_server", {
+				filetypes = {
+					"astro",
+					"css",
+					"eruby",
+					"html",
+					"htmlangular",
+					"htmldjango",
+					"javascriptreact",
+					"less",
+					"pug",
+					"sass",
+					"scss",
+					"templ",
+					"typescriptreact",
+					"vue",
+				},
+			})
 			vim.lsp.enable("emmet_language_server")
 
 			-- GO
