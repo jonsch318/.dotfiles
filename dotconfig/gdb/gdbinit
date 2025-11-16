@@ -1,1 +1,2 @@
 add-auto-load-safe-path /home/jonas/local-src/uni/lkp/linux-6.5.7/scripts/gdb/vmlinux-gdb.py
+add-auto-load-safe-path /home/jonas/src/uni/aos/xv6/.gdbinit
