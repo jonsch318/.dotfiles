@@ -75,6 +75,7 @@ return {
 
 			-- GO
 			vim.lsp.enable("gopls")
+			vim.lsp.enable("golangci_lint_ls")
 
 			-- HASKELL
 			-- Own Plugin
@@ -102,7 +103,8 @@ return {
 
 			-- PYTHON
 			vim.lsp.enable("ruff")
-			vim.lsp.enable("pyright")
+			-- vim.lsp.enable("pyright")
+			vim.lsp.enable("pyrefly")
 
 			-- Docker
 			vim.lsp.enable("dockerls")

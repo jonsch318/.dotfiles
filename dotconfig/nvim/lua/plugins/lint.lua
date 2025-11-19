@@ -5,12 +5,7 @@ return {
 		event = { "BufWritePost", "BufNewFile" },
 		config = function(_, _opts)
 			require("lint").linters_by_ft = {
-				-- javascript = { "eslint" },
-				-- typescript = { "eslint" },
-				-- javascriptreact = { "eslint" },
-				-- typescriptreact = { "eslint" },
-				svelte = { "eslint" },
-				go = { "golangcilint" },
+				lua = { "luacheck" },
 				cmake = { "cmakelint" },
 				sql = { "sqlfluff" },
 				starlark = { "buildifier" },
