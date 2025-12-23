@@ -1,8 +1,9 @@
 # This file contains fish universal variable definitions.
 # VERSION: 3.0
-SETUVAR --export LD_LIBRARY_PATH:/opt/gurobi1203/linux64/lib
+SETUVAR --export CARGO_TARGET_DIR:/home/jonas/\x2ecache/cargo
 SETUVAR --export GUROBI_HOME:/opt/gurobi1203/linux64
 SETUVAR --export KEYID:0x1B95684041835F5F
+SETUVAR --export LD_LIBRARY_PATH:/opt/gurobi1203/linux64/lib
 SETUVAR --export VAULT_ADDR:https\x3a//openbao\x2ejonsch\x2eeu\x3a8200
 SETUVAR __fish_initialized:3800
 SETUVAR _fisher_jhillyerd_2F_plugin_2D_git_files:\x7e/\x2econfig/fish/functions/__git\x2ebranch_has_wip\x2efish\x1e\x7e/\x2econfig/fish/functions/__git\x2ecurrent_branch\x2efish\x1e\x7e/\x2econfig/fish/functions/__git\x2edefault_branch\x2efish\x1e\x7e/\x2econfig/fish/functions/__git\x2edestroy\x2efish\x1e\x7e/\x2econfig/fish/functions/__git\x2einit\x2efish\x1e\x7e/\x2econfig/fish/functions/gbage\x2efish\x1e\x7e/\x2econfig/fish/functions/gbda\x2efish\x1e\x7e/\x2econfig/fish/functions/gdv\x2efish\x1e\x7e/\x2econfig/fish/functions/gignored\x2efish\x1e\x7e/\x2econfig/fish/functions/glp\x2efish\x1e\x7e/\x2econfig/fish/functions/grename\x2efish\x1e\x7e/\x2econfig/fish/functions/grt\x2efish\x1e\x7e/\x2econfig/fish/functions/gtest\x2efish\x1e\x7e/\x2econfig/fish/functions/gtl\x2efish\x1e\x7e/\x2econfig/fish/functions/gunwip\x2efish\x1e\x7e/\x2econfig/fish/functions/gwip\x2efish\x1e\x7e/\x2econfig/fish/conf\x2ed/git\x2efish
@@ -44,4 +45,4 @@ SETUVAR fish_pager_color_description:yellow\x1e\x2di
 SETUVAR fish_pager_color_prefix:normal\x1e\x2d\x2dbold\x1e\x2d\x2dunderline
 SETUVAR fish_pager_color_progress:brwhite\x1e\x2d\x2dbackground\x3dcyan
 SETUVAR fish_pager_color_selected_background:\x2dr
-SETUVAR fish_user_paths:/opt/gurobi1300/linux64/bin\x1e/home/jonas/\x2ekrew/bin\x1e/home/jonas/\x2elocal/share/gem/ruby/3\x2e3\x2e0/bin\x1e/opt/scorep/bin\x1e/home/jonas/go/bin\x1e/home/jonas/\x2ecargo/bin
+SETUVAR fish_user_paths:/home/jonas/\x2elocal/bin\x1e/opt/gurobi1300/linux64/bin\x1e/home/jonas/\x2ekrew/bin\x1e/home/jonas/\x2elocal/share/gem/ruby/3\x2e3\x2e0/bin\x1e/opt/scorep/bin\x1e/home/jonas/go/bin\x1e/home/jonas/\x2ecargo/bin
