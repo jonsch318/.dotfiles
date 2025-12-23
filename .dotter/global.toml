@@ -37,6 +37,9 @@ depends=["bash", "fish", "starship", "nvim", "zellij", "helix", "yazi", "alacrit
 [native-nvim.files]
 "dotconfig/native-nvim" = {target="~/.config/native-nvim", type="symbolic"}
 
+[paru.files]
+"dotconfig/paru/paru.conf" = {target="~/.config/paru/paru.con", type="symbolic"}
+
 [helix.files]
 "dotconfig/helix" = {target="~/.config/helix", type="symbolic"}
 
