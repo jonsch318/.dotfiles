@@ -1,3 +1,16 @@
+# Check if in development environment (toolbox or devkit)
+IN_DEV_ENV=false
+
+# Check for toolbox
+if [[ -f /run/.toolboxenv ]] || [[ -f /run/.containerenv ]]; then
+  IN_DEV_ENV=true
+fi
+
+# Skip zellij/fish in dev environments
+if [[ "$IN_DEV_ENV" == "true" ]]; then
+  return 0 # or just continue with normal bash
+fi
+
 # Check if is interactive-session i.e. fish should be started in zellij
 if [[ $(ps --no-header --pid=$PPID --format=comm) != "fish" && -z ${BASH_EXECUTION_STRING} && -z ${ZELLIJ} && -z ${virtme_hostname} ]]; then
   shopt -q login_shell && LOGIN_OPTION='--login' || LOGIN_OPTION=''

@@ -13,6 +13,7 @@ return {
 				dockerfile = { "hadolint" },
 				yaml = { "yamllint" },
 				["yaml.ghaction"] = { "actionlint" },
+				kotlin = { "ktlint" },
 			}
 
 			require("lint").linters.sqlfluff.args = {

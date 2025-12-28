@@ -128,6 +128,12 @@ return {
 			-- starlark
 			vim.lsp.enable("starpls")
 			vim.lsp.enable("bzl")
+
+			-- Java
+			vim.lsp.enable("jdtls")
+
+			-- Kotlin
+			vim.lsp.enable("kotlin_lsp")
 		end,
 	},
 }
