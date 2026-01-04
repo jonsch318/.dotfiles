@@ -350,8 +350,9 @@ window-rule {
 
 
 window-rule {
-    match app-id=r#"^Extension: \(Bitwarden Password Manager\) - Bitwarden — Zen Browser$"#
+    match app-id=r#"zen"# title=r#"^Extension: \(Bitwarden Password Manager\) - Bitwarden — Zen Browser$"#
     block-out-from "screen-capture"
+    open-floating true
 }
 
 // Example: block out two password managers from screen capture.
@@ -392,7 +393,7 @@ binds {
     Mod+T hotkey-overlay-title="Open a Terminal: alacritty" { spawn "alacritty" "-e" "/usr/bin/fish"; }
     Mod+Return hotkey-overlay-title="Open Terminal" { spawn "alacritty"; }
     Mod+D hotkey-overlay-title="Run an Application: fuzzel" { spawn "fuzzel"; }
-    Super+Alt+L hotkey-overlay-title="Lock the Screen: hyprlock" { spawn "hyprlock"; }
+    Ctrl+Alt+L hotkey-overlay-title="Lock the Screen: hyprlock" { spawn "hyprlock"; }
 
     Mod+Space hotkey-overlay-title="Run App: fuzzel" { spawn "fuzzel" "-w" "75" "-b" "24242aff" "--prompt-color" "ffffffff" "--placeholder-color" "ffffffbf" "--input-color" "ffffffff" "-t" "ffffffcf" "--match-color" "ffffffef" "--selection-color" "ffffffff" "-F" "filename,name,generic,keywords" "--font" "/usr/share/fonts/TTF/HankenGrotesk-Regular.ttf,/usr/share/fonts/TTF/JetBrainsMonoNerdFontMono-Regular.ttf" "-p" "  " "-P" "12";
  }

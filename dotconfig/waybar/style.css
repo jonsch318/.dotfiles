@@ -9,7 +9,7 @@ window#waybar {
     Hanken Grotesk,
     FontAwesome,
     monospace;
-  background-color: #09090b;
+  background-color: #000000;
   border: none;
   color: #f4f4f5;
   transition-property: background-color;
