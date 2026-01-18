@@ -137,6 +137,10 @@ environment {
     ELECTRON_OZONE_PLATFORM_HINT "auto"
 }
 
+debug {
+  honor-xdg-activation-with-invalid-serial
+}
+
 // Settings that influence how windows are positioned and sized.
 // Find more information on the wiki:
 // https://yalter.github.io/niri/Configuration:-Layout
@@ -425,8 +429,8 @@ binds {
     Mod+Return hotkey-overlay-title="Open Terminal" { spawn "alacritty"; }
     Mod+D hotkey-overlay-title="Run an Application: fuzzel" { spawn "fuzzel"; }
     Ctrl+Alt+L hotkey-overlay-title="Lock the Screen: hyprlock" { spawn "hyprlock"; }
-    Mod+Space hotkey-overlay-title="Run App: fuzzel" { spawn "fuzzel" "-w" "75" "-b" "24242aff" "--prompt-color" "ffffffff" "--placeholder-color" "ffffffbf" "--input-color" "ffffffff" "-t" "ffffffcf" "--match-color" "ffffffef" "--selection-color" "ffffffff" "-F" "filename,name,generic,keywords" "--font" "/usr/share/fonts/TTF/HankenGrotesk-Regular.ttf,/usr/share/fonts/TTF/JetBrainsMonoNerdFontMono-Regular.ttf" "-p" "  " "-P" "12";
- }
+    //Mod+Space repeat=false hotkey-overlay-title="Run App: fuzzel" { spawn "fuzzel" "-w" "75" "-b" "24242aff" "--prompt-color" "ffffffff" "--placeholder-color" "ffffffbf" "--input-color" "ffffffff" "-t" "ffffffcf" "--match-color" "ffffffef" "--selection-color" "ffffffff" "-F" "filename,name,generic,keywords" "--font" "/usr/share/fonts/TTF/HankenGrotesk-Regular.ttf,/usr/share/fonts/TTF/JetBrainsMonoNerdFontMono-Regular.ttf" "-p" "  " "-P" "12"; }
+    Mod+Space repeat=false hotkey-overlay-title="Run APP" { spawn "vicinae" "toggle"; }
 
     // Use spawn-sh to run a shell command. Do this if you need pipes, multiple commands, etc.
     // Note: the entire command goes as a single argument. It's passed verbatim to `sh -c`.

@@ -1,6 +1,7 @@
 # This file contains fish universal variable definitions.
 # VERSION: 3.0
 SETUVAR --export CARGO_TARGET_DIR:/home/jonas/\x2ecache/cargo
+SETUVAR --export LD_LIBRARY_PATH:/opt/gurobi1203/linux64/lib
 SETUVAR --export GUROBI_HOME:/opt/gurobi1203/linux64
 SETUVAR --export KEYID:0x1B95684041835F5F
 SETUVAR --export LD_LIBRARY_PATH:/opt/gurobi1203/linux64/lib
