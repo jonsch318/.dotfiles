@@ -10,7 +10,7 @@ local function ts_start(bufnr, parser_name)
 	vim.wo.foldexpr = "v:lua.vim.treesitter.foldexpr()"
 	vim.wo.foldtext = "v:lua.vim.treesitter.foldtext()"
 	-- Use treesitter for indentation
-	vim.bo[bufnr].indentexpr = "v:lua.require'nvim-treesitter'.indentexpr()"
+	--vim.bo[bufnr].indentexpr = "v:lua.require'nvim-treesitter'.indentexpr()"
 end
 
 -- Auto-install and start parsers for any buffer
