@@ -111,7 +111,13 @@ return {
 			vim.lsp.enable("docker_compose_language_service")
 
 			--- CONFIGURATION LANGS
-			vim.lsp.enable("yamlls")
+			--vim.lsp.enable("yamlls")
+			vim.lsp.config["yamlschemarouter"] = {
+				cmd = { "yaml-schema-router" },
+				filetypes = { "yaml", "yaml.docker-compose", "yaml.gitlab", "yaml.helm-values" },
+				settings = {},
+			}
+			vim.lsp.enable("yamlschemarouter")
 			vim.lsp.enable("jsonls")
 			vim.lsp.enable("jsonnet_ls")
 			vim.lsp.enable("ansiblels")
