@@ -16,8 +16,8 @@ starship init fish | source
 #FNM
 set FNM_PATH "/home/jonas/.local/share/fnm"
 if [ -d "$FNM_PATH" ]
-	set PATH "$FNM_PATH $PATH"
-	fnm env --shell fish | source
+    fish_add_path $FNM_PATH
+    fnm env --shell fish | source
 end
 
 set -x GPG_TTY (tty)
@@ -42,11 +42,10 @@ bind -M insert $sudope_sequence sudope
 
 # pnpm
 set -gx PNPM_HOME "/home/jonas/.local/share/pnpm"
-if not string match -q -- $PNPM_HOME $PATH
-  set -gx PATH "$PNPM_HOME" $PATH
-end
+fish_add_path $PNPM_HOME
+# pnpm end
 
 # pnpm end
 
 # ANNOYING THINGS
-set -gx PATH $PATH $HOME/.krew/bin
+#fish_add_path $HOME/.krew/bin

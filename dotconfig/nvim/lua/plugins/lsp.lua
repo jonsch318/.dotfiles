@@ -104,7 +104,8 @@ return {
 			-- PYTHON
 			vim.lsp.enable("ruff")
 			-- vim.lsp.enable("pyright")
-			vim.lsp.enable("pyrefly")
+			--vim.lsp.enable("pyrefly")
+			vim.lsp.enable("ty")
 
 			-- Docker
 			vim.lsp.enable("dockerls")
