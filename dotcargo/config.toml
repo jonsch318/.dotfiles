@@ -1,2 +1,5 @@
 [registry]
 global-credential-providers = ["cargo:token", "cargo:libsecret", "cargo:macos-keychain", "cargo:wincred"]
+
+[build]
+rustc-wrapper = "/usr/bin/sccache"
