@@ -95,9 +95,6 @@ depends=["waybar", "mako", "graphical"]
 output=["DP-1", "DP-2"]
 include_battery=true
 
-[pipewire.files]
-"dotconfig/pipewire" = "~/.config/pipewire"
-
 ### PRIVILEGED ### 
 [lemurs.files]
 #"lemurs/wayland/hyprland" = {target="/etc/lemurs/wayland/hyprland", owner=0, type="template"}
