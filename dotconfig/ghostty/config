@@ -1,3 +1,2 @@
-window-decoration = false
-command=/usr/bin/fish
 theme = Kanagawa Dragon
+font-size = 16
