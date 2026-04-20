@@ -46,7 +46,7 @@ return {
 			{
 				"<leader>fs",
 				function()
-					require("fzf-lua").files()
+					require("fzf-lua").lsp_document_symbols()
 				end,
 				desc = "Files (fzf-lua)",
 			},

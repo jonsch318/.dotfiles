@@ -147,6 +147,7 @@ debug {
 layout {
     // Set gaps around windows in logical pixels.
     gaps 4
+    background-color "#000000"
 
     // When to center a column when changing focus, options are:
     // - "never", default behavior, focusing an off-screen column will keep at the left
@@ -353,6 +354,10 @@ window-rule {
     match app-id=r#"Alacritty"#
     geometry-corner-radius 8
     clip-to-geometry true
+
+    focus-ring {
+      off
+    }
 }
 
 // Window rules let you adjust behavior for individual windows.
